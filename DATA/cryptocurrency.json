@@ -1,0 +1,170 @@
+[
+    {
+        "index": 0,
+        "year": 2000,
+        "rank": 0,
+        "freq": 0,
+        "articles": "154918",
+        "percentage": 0.0
+    },
+    {
+        "index": 1,
+        "year": 2001,
+        "rank": 0,
+        "freq": 0,
+        "articles": "167475",
+        "percentage": 0.0
+    },
+    {
+        "index": 2,
+        "year": 2002,
+        "rank": 0,
+        "freq": 0,
+        "articles": "165699",
+        "percentage": 0.0
+    },
+    {
+        "index": 3,
+        "year": 2003,
+        "rank": 0,
+        "freq": 0,
+        "articles": "162637",
+        "percentage": 0.0
+    },
+    {
+        "index": 4,
+        "year": 2004,
+        "rank": 0,
+        "freq": 0,
+        "articles": "162749",
+        "percentage": 0.0
+    },
+    {
+        "index": 5,
+        "year": 2005,
+        "rank": 0,
+        "freq": 0,
+        "articles": "182653",
+        "percentage": 0.0
+    },
+    {
+        "index": 6,
+        "year": 2006,
+        "rank": 0,
+        "freq": 0,
+        "articles": "247816",
+        "percentage": 0.0
+    },
+    {
+        "index": 7,
+        "year": 2007,
+        "rank": 0,
+        "freq": 0,
+        "articles": "152486",
+        "percentage": 0.0
+    },
+    {
+        "index": 8,
+        "year": 2008,
+        "rank": 0,
+        "freq": 0,
+        "articles": "181030",
+        "percentage": 0.0
+    },
+    {
+        "index": 9,
+        "year": 2009,
+        "rank": 0,
+        "freq": 0,
+        "articles": "223181",
+        "percentage": 0.0
+    },
+    {
+        "index": 10,
+        "year": 2010,
+        "rank": 0,
+        "freq": 0,
+        "articles": "169519",
+        "percentage": 0.0
+    },
+    {
+        "index": 11,
+        "year": 2011,
+        "rank": 0,
+        "freq": 0,
+        "articles": "155912",
+        "percentage": 0.0
+    },
+    {
+        "index": 12,
+        "year": 2012,
+        "rank": 0,
+        "freq": 0,
+        "articles": "156931",
+        "percentage": 0.0
+    },
+    {
+        "index": 13,
+        "year": 2013,
+        "rank": 0,
+        "freq": 0,
+        "articles": "137515",
+        "percentage": 0.0
+    },
+    {
+        "index": 14,
+        "year": 2014,
+        "rank": 0,
+        "freq": 0,
+        "articles": "135184",
+        "percentage": 0.0
+    },
+    {
+        "index": 15,
+        "year": 2015,
+        "rank": 64141,
+        "freq": 1,
+        "articles": "121172",
+        "percentage": 0.0000082527
+    },
+    {
+        "index": 16,
+        "year": 2016,
+        "rank": 0,
+        "freq": 0,
+        "articles": "105605",
+        "percentage": 0.0
+    },
+    {
+        "index": 17,
+        "year": 2017,
+        "rank": 17257,
+        "freq": 9,
+        "articles": "91091",
+        "percentage": 0.0000988023
+    },
+    {
+        "index": 18,
+        "year": 2018,
+        "rank": 4248,
+        "freq": 40,
+        "articles": "50856",
+        "percentage": 0.0007865345
+    },
+    {
+        "index": 19,
+        "year": 2019,
+        "rank": 5088,
+        "freq": 49,
+        "articles": "80606",
+        "percentage": 0.0006078952
+    },
+    {
+        "index": 20,
+        "year": 2020,
+        "rank": 12028,
+        "freq": 11,
+        "articles": "69118",
+        "percentage": 0.0001591481
+    }
+]

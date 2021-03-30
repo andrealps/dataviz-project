@@ -1,0 +1,170 @@
+[
+    {
+        "index": 0,
+        "year": 2000,
+        "rank": 138,
+        "freq": 5540,
+        "articles": "154918",
+        "percentage": 0.0357608541
+    },
+    {
+        "index": 1,
+        "year": 2001,
+        "rank": 257,
+        "freq": 3594,
+        "articles": "167475",
+        "percentage": 0.0214599194
+    },
+    {
+        "index": 2,
+        "year": 2002,
+        "rank": 459,
+        "freq": 2398,
+        "articles": "165699",
+        "percentage": 0.0144720246
+    },
+    {
+        "index": 3,
+        "year": 2003,
+        "rank": 560,
+        "freq": 1990,
+        "articles": "162637",
+        "percentage": 0.0122358381
+    },
+    {
+        "index": 4,
+        "year": 2004,
+        "rank": 593,
+        "freq": 2004,
+        "articles": "162749",
+        "percentage": 0.0123134397
+    },
+    {
+        "index": 5,
+        "year": 2005,
+        "rank": 720,
+        "freq": 2210,
+        "articles": "182653",
+        "percentage": 0.0120994454
+    },
+    {
+        "index": 6,
+        "year": 2006,
+        "rank": 563,
+        "freq": 3231,
+        "articles": "247816",
+        "percentage": 0.0130378991
+    },
+    {
+        "index": 7,
+        "year": 2007,
+        "rank": 537,
+        "freq": 1221,
+        "articles": "152486",
+        "percentage": 0.0080072925
+    },
+    {
+        "index": 8,
+        "year": 2008,
+        "rank": 458,
+        "freq": 1519,
+        "articles": "181030",
+        "percentage": 0.0083908744
+    },
+    {
+        "index": 9,
+        "year": 2009,
+        "rank": 709,
+        "freq": 1299,
+        "articles": "223181",
+        "percentage": 0.0058203879
+    },
+    {
+        "index": 10,
+        "year": 2010,
+        "rank": 626,
+        "freq": 961,
+        "articles": "169519",
+        "percentage": 0.0056689811
+    },
+    {
+        "index": 11,
+        "year": 2011,
+        "rank": 661,
+        "freq": 804,
+        "articles": "155912",
+        "percentage": 0.0051567551
+    },
+    {
+        "index": 12,
+        "year": 2012,
+        "rank": 586,
+        "freq": 953,
+        "articles": "156931",
+        "percentage": 0.0060727326
+    },
+    {
+        "index": 13,
+        "year": 2013,
+        "rank": 630,
+        "freq": 776,
+        "articles": "137515",
+        "percentage": 0.0056430208
+    },
+    {
+        "index": 14,
+        "year": 2014,
+        "rank": 602,
+        "freq": 788,
+        "articles": "135184",
+        "percentage": 0.0058290922
+    },
+    {
+        "index": 15,
+        "year": 2015,
+        "rank": 804,
+        "freq": 581,
+        "articles": "121172",
+        "percentage": 0.0047948371
+    },
+    {
+        "index": 16,
+        "year": 2016,
+        "rank": 901,
+        "freq": 433,
+        "articles": "105605",
+        "percentage": 0.0041001847
+    },
+    {
+        "index": 17,
+        "year": 2017,
+        "rank": 732,
+        "freq": 450,
+        "articles": "91091",
+        "percentage": 0.0049401148
+    },
+    {
+        "index": 18,
+        "year": 2018,
+        "rank": 781,
+        "freq": 244,
+        "articles": "50856",
+        "percentage": 0.0047978606
+    },
+    {
+        "index": 19,
+        "year": 2019,
+        "rank": 787,
+        "freq": 384,
+        "articles": "80606",
+        "percentage": 0.0047639134
+    },
+    {
+        "index": 20,
+        "year": 2020,
+        "rank": 871,
+        "freq": 306,
+        "articles": "69118",
+        "percentage": 0.0044272114
+    }
+]
