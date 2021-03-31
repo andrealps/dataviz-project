@@ -2,6 +2,7 @@
 <html>
 
 <!-- In the HEAD section we have the external resources and dependencies -->
+
 <head>
     <!-- Here we define the set of characters we use -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -34,14 +35,32 @@
             </div>
             <!-- This is the box where the snake is -->
             <div class="col-sm-8" id="snake-container">
-                Snake dataviz
             </div>
         </div>
     </div>
 
     <!-- Here goes the javascript bit with the D3.js code -->
     <script type="text/javascript">
+        // ************************************************************ VARIABLES
+        var width_snake = "100%"; // width of snake-svg
+        var height_snake = "600"; // height of snake-svg
+        var snake_path_data =
+            "M 39 60 H 60 C 61 60 62 60 62 62 C 62 63 61 63 60 63 H 40 C 38 63 37 64 37 66 C 37 68 39 68 39 68 H 60 C 61 68 62 68 62 70 C 62 71 61 71 60 71 H 40 C 38 71 37 72 37 74 C 37 76 39 76 39 76 H 64 V 75 H 40 C 40 75 38 75 38 74 C 38 73 38 72 40 72 H 60 C 62 72 63 72 63 70 C 63 68 62 67 60 67 H 40 C 38 67 38 66 38 66 C 38 64 39 64 40 64 H 60 C 61 64 63 64 63 62 C 63 59 61 59 60 59 H 39";
+        // Snake path data
+        var snake_svg = d3.select("#snake-container").append("svg").attr("id", "svg-snake")
+            .attr("width", width_snake).attr("height", height_snake); // Snake svg
 
+        // ************************************************************ DRAW
+        showSnakePath();
+
+        // ************************************************************ FUNCTIONS
+        function showSnakePath() {
+            let aa = document.getElementById("snake-container").clientWidth;
+            snake_svg.append("path")
+                .attr("id", "snake-path")
+                .attr("d", snake_path_data)
+            ;
+        }
     </script>
 
 </body>
