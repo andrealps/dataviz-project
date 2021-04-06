@@ -1,4 +1,11 @@
+#snake-path, #group-snake-colors {
+    transform: scale(20) translate(-36px, -50px);
+}
+
 #snake-path {
-    transform: scale(15) translate(-35px, -50px);
-    
+    visibility: hidden;
+}
+
+.piece {
+    fill: white;
 }
