@@ -46,16 +46,18 @@
         var height_snake = "600"; // height of snake-svg
         var snake_path_data =
             "m 585 900 h 315 c 13.725 -0.046 33.518 3.347 36.346 31.058 c 2.262 10.745 -3.959 38.456 -29 38 h -301 c -30 0 -45 15 -45 45 c 0 30 30 30 30 30 h 3 h 315 c 13.725 -0.046 33.518 3.347 36.346 31.058 c 2.262 10.745 -3.959 38.456 -29 38 h -301 c -30 0 -45 15 -45 45 c 0 30 30 30 30 30 h 3 H 955.167";
+        var line; // path line to split
 
-        var line;
         // Variables to split snake
         var numConcepts = 14; // number of concepts in the snake
         var snakeLength; // length of the snake
         var sampleInterval = .25;
         var cumu = 0;
-        var colors = d3.schemeCategory20b;
-        var path = d3.line()
-                    .curve(d3.curveCardinal);
+
+        var colors = d3.scaleOrdinal().range(["#D44A6F", "#E67962", "#FDCB5B", "#80C0A1", "#5F8F78",
+            "#53B9C9", "#0086B2", "#8B6391", "#667981"
+        ]); // Empathy colors
+        var path = d3.line().curve(d3.curveCardinal);
 
         // Snake path data
         var snake_svg = d3.select("#snake-container").append("svg").attr("id", "svg-snake")
@@ -66,7 +68,7 @@
         showSnakePath();
 
 
-        showLine(function() {
+        showLine(function () {
             var pieces = splitPath();
 
             var pts = [];
@@ -90,8 +92,7 @@
         function showSnakePath() {
             line = snake_svg.append("path")
                 .attr("id", "snake-path")
-                .attr("d", snake_path_data)
-                ;
+                .attr("d", snake_path_data);
 
             snakeLength = line.node().getTotalLength(); // set snakeLength
             console.log(snakeLength);
@@ -154,19 +155,17 @@
                 .attr("class", "piece")
                 .attr("d", function (d, i) {
                     return path(d.segs);
-                })
-                ;
+                });
 
-            
+
             lines.transition()
                 .duration(0)
                 .delay(function (d, i) {
                     return i * 250;
                 })
                 .style("stroke", function (d, i) {
-                    return colors[i];
+                    return colors(i);
                 });
-                
         }
     </script>
 
