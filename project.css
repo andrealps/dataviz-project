@@ -1,5 +1,6 @@
 #snake-path, #group-snake-colors {
-    transform: scale(20) translate(-36px, -50px);
+    transform: scale(1.2) translate(-380px, -800px);
+    stroke-width: 10px;
 }
 
 #snake-path {
