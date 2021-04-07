@@ -16,7 +16,6 @@ window.createGraphic = function() {
 
     var size = 600
     var height = 600
-    var svg;
 
     // actions to take on each step of our scroll-driven story
     var steps = [
@@ -50,7 +49,7 @@ window.createGraphic = function() {
     }
 
     function setupCharts() {
-        svg = graphicVisEl.append('svg')
+        var svg = graphicVisEl.append('svg')
             .attr('width', size + 'px')
             .attr('height', height + 'px')
         
