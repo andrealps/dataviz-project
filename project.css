@@ -20,9 +20,22 @@
 }
 
 #svg-start-icon {
-    transform: scale(0.12) translate(8em, 50em);
+    transform: scale(0.1) translate(8em, 65em);
 }
 
 #svg-finish-icon {
     transform: scale(0.1) translate(390em, 235em);
 }
+
+#svg-wheel-icon {
+    transform: scale(0.1) translate(80em, 60em);
+}
+
+#svg-boat-icon {
+    transform: scale(0.1) translate(135em, 60em);
+}
+
+#svg-alphabet-icon {
+    transform: scale(0.1) translate(190em, 60em);
+}
+

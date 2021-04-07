@@ -43,6 +43,7 @@
     <script type="text/javascript">
         // ************************************************************ VARIABLES
         var base_path_image = "./IMAGES/"; // basic path for images
+        var icons = ["start", "finish", "wheel", "boat", "alphabet"]; //icons name
 
         var width_snake = "100%"; // width of snake-svg
         var height_snake = "600"; // height of snake-svg
@@ -96,12 +97,12 @@
         showIcons();
         // ************************************************************ FUNCTIONS
         function showIcons() {
-            // Start icon
-            snake_svg.append("image").attr("id", "svg-start-icon")
-            .attr("xlink:href", base_path_image + "start.svg");
-            // Finish icon
-            snake_svg.append("image").attr("id", "svg-finish-icon")
-            .attr("xlink:href", base_path_image + "finish.svg");
+            icons.forEach(icon => createIcon(icon));
+        }
+
+        function createIcon(name) {
+            snake_svg.append("image").attr("id", "svg-" + name + "-icon").attr("class", "icon")
+            .attr("xlink:href", base_path_image + name + ".svg");
         }
 
 
