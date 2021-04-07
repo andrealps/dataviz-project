@@ -1,6 +1,9 @@
 #snake-path, #group-snake-colors {
-    transform: scale(1.2) translate(-380px, -800px);
-    stroke-width: 10px;
+    transform: scale(1.4) translate(-520px, -800px);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #snake-path {
@@ -8,5 +11,18 @@
 }
 
 .piece {
-    fill: white;
+    stroke-width: 20;
+}
+
+.color-background {
+    fill: #36515B;
+    background-color: #36515B;
+}
+
+#svg-start-icon {
+    transform: scale(0.12) translate(8em, 50em);
+}
+
+#svg-finish-icon {
+    transform: scale(0.1) translate(390em, 235em);
 }
