@@ -510,6 +510,12 @@ window.createGraphic = function(graphicSelector) {
         svg = graphicVisEl.append('svg')
             .attr('width', size + 'px')
             .attr('height', height + 'px')
+            .attr("class", "graph-svg-component");
+        
+        svg.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill", "#36515B");
 
         var chart = svg.append('g')
         .classed('chart', true)
@@ -558,7 +564,7 @@ window.createGraphic = function(graphicSelector) {
         uppercompy = 1230
         comp_pitch = 1050
         speed_bars = 10000
-        columns = ["Predictive", "Organic", "Refinement"]
+//        columns = ["Predictive", "Organic", "Refinement"]
 
         lineGenerator = d3.line()
             .curve(d3.curveCardinal.tension(0.5));
@@ -569,7 +575,7 @@ window.createGraphic = function(graphicSelector) {
             .attr("y", barpitchy)
             .attr("height", 200)
             .attr("width", 500)
-            .attr("fill", "#fff");
+            .attr("fill", "#36515B");
 
 //        chart
 //            .append("text")
@@ -589,21 +595,21 @@ window.createGraphic = function(graphicSelector) {
 //            .attr("width", 200)
 //            .attr("fill", "#999");
 
-        for (var i = 0; i < columns.length; i++) {
-
-            chart
-                .append("text")
-                .attr("x", defaultpitchx - 60 + i * 90)
-                .attr("y", 555)
-                .text(columns[i])
-                .attr("font-family", "Montserrat, sans-serif")
-                .attr("text-anchor", "middle")
-                .attr("font-style","semibold")
-                .attr("id","title_"+i)
-                .attr("font-size", 16)
-                .attr("opacity",0)
-                .style("fill", "#999");
-        }
+//        for (var i = 0; i < columns.length; i++) {
+//
+//            chart
+//                .append("text")
+//                .attr("x", defaultpitchx - 60 + i * 90)
+//                .attr("y", 555)
+//                .text(columns[i])
+//                .attr("font-family", "Montserrat, sans-serif")
+//                .attr("text-anchor", "middle")
+//                .attr("font-style","semibold")
+//                .attr("id","title_"+i)
+//                .attr("font-size", 16)
+//                .attr("opacity",0)
+//                .style("fill", "#999");
+//        }
 
         // --------------------------------- DATA
 

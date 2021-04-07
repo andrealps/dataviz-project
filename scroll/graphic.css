@@ -1,4 +1,11 @@
 /* GRAPHIC CODE */
+
+body{
+    background:#36515B;
+}
+
+
+
 .graphic {
 	width: 100%;
 	position: relative;
@@ -28,6 +35,8 @@
     font-size: 40px;
     line-height: 40px;
     font-weight:lighter;
+    color: #E2E6E7;
+    font-weight: bold;
 }
 
 .trigger span{
@@ -37,7 +46,7 @@
 line-height: 12px;
 font-family: Lora,serif;
 font-size: 22px;
-color: #999;
+color: #A6B0B5;
     
 }
 
@@ -54,6 +63,7 @@ color: #999;
     font-size: 40px;
     line-height: 30px;
     font-weight:lighter;
+    color: #8B6391;
 }
 
 .trigger2 span{
@@ -63,7 +73,7 @@ color: #999;
 line-height: 12px;
 font-family: Lora,serif;
 font-size: 16px;
-color: #999;
+color: #8B6391;
     
 }
 
