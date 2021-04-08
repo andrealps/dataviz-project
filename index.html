@@ -105,7 +105,6 @@
             .attr("xlink:href", base_path_image + name + ".svg");
         }
 
-
         // Show snake path
         function showSnakePath() {
             line = snake_svg.append("path")
@@ -174,7 +173,6 @@
                     return path(d.segs);
                 });
 
-
             lines.transition()
                 .duration(0)
                 .delay(function (d, i) {
@@ -185,7 +183,6 @@
                 });
         }
     </script>
-
 </body>
 
 </html>
