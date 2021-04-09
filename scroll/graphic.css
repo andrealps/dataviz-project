@@ -33,3 +33,34 @@ body{
     color: #A6B0B5;
 }
 
+.graphic__vis {
+	position: absolute;
+	top: 0;
+	margin-left: 30rem;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	height: 100vh;
+}
+
+.graphic__vis.is-fixed {
+	position: fixed;
+}
+
+.graphic__vis.is-bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.graphic__vis svg {
+/*	border: 1px dashed black;*/
+	border: 0px dashed black;
+    background: #fff;
+    top: 50%;
+	position: relative;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+
+}
+
