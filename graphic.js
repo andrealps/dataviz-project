@@ -16,6 +16,10 @@ window.createGraphic = function() {
 
     var size = 600
     var height = 600
+    
+    
+    //<-----------------------------------------FIRST VIZ--------------------------------------------------------->
+    
     var t = d3.transition()
             .duration(2000)
             .ease(d3.easeExp)
@@ -374,6 +378,11 @@ window.createGraphic = function() {
     return {
         update: update,
     }
+    
+    
+    //<-----------------------------------------SECOND VIZ--------------------------------------------------------->
+    
+    
     
 }
 
