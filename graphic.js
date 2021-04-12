@@ -20,82 +20,175 @@ window.createGraphic = function() {
             .duration(2000)
             .ease(d3.easeExp)
 
+
+    var bool1 = false;
+    var bool2 = false;
+    var bool3 = false;
+    var bool4 = false;
+    var bool5 = false;
+    
+    
     // actions to take on each step of our scroll-driven story
     var steps = [
-        function step0() {  
-            console.log("step0");
+        function step0() {
+            
             d3.select("#piece_0")
-                .transition(t)
-                .style('opacity',1)
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =0; i<4; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
             
-            for(var i =0; i<4; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            
+            //going  backwards
+            if(bool1){
+                d3.select("#piece_1")
+                    .transition(t)
+                    .style('opacity',0)
+
+                for(var i =4; i<8; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',0)
+                }
+                bool1=false;
             }
-            
         },
 
         function step1() {
-            d3.select("#piece_1")
-                .transition(t)
-                .style('opacity',1)
+            if(!bool1){
+                d3.select("#piece_1")
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =4; i<8; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
+                bool1=true;
+            }
             
-            for(var i =4; i<8; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            
+            //going  backwards
+            if(bool2){
+                d3.select("#piece_2")
+                    .transition(t)
+                    .style('opacity',0)
+
+                for(var i =8; i<12; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',0)
+                }
+                bool2=false;
             }
         },
 
         function step2() {
-            console.log("step2");
-            d3.select("#piece_2")
-                .transition(t)
-                .style('opacity',1)
+            if(!bool2){
+                d3.select("#piece_2")
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =8; i<12; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
+                bool2=true;
+            }
             
-            for(var i =8; i<12; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            
+            //going  backwards
+            if(bool3){
+                d3.select("#piece_3")
+                    .transition(t)
+                    .style('opacity',0)
+
+                for(var i =12; i<16; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',0)
+                }
+                bool3=false;
             }
         },
 
         function step3() {
-            console.log("step3");
-            d3.select("#piece_3")
-                .transition(t)
-                .style('opacity',1)
+            if(!bool3){
+                d3.select("#piece_3")
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =12; i<16; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
+                bool3=true;
+            }
             
-            for(var i =12; i<16; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            
+            //going  backwards
+            if(bool4){
+                d3.select("#piece_4")
+                    .transition(t)
+                    .style('opacity',0)
+
+                for(var i =16; i<20; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',0)
+                }
+                bool4=false;
             }
         },
 
         function step4() {
-            console.log("step4");
-            d3.select("#piece_4")
-                .transition(t)
-                .style('opacity',1)
+            if(!bool4){
+                d3.select("#piece_4")
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =16; i<20; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
+                bool4=true;
+            }
             
-            for(var i =16; i<20; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            
+            //going  backwards
+            if(bool5){
+                d3.select("#piece_5")
+                    .transition(t)
+                    .style('opacity',0)
+
+                for(i =20; i<24; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',0)
+                }
+                bool5=false;
             }
         },
         function step5() {
-            console.log("step5");
-            d3.select("#piece_5")
-                .transition(t)
-                .style('opacity',1)
-            
-            for(var i =20; i<24; i++){
-                d3.select(".icon-"+i+"-svg")
-                .transition(t)
-                .style('opacity',1)
+            if(!bool5){
+                d3.select("#piece_5")
+                    .transition(t)
+                    .style('opacity',1)
+
+                for(var i =20; i<24; i++){
+                    d3.select(".icon-"+i+"-svg")
+                    .transition(t)
+                    .style('opacity',1)
+                }
+                bool5=true;
             }
         },
     ]
