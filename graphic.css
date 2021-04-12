@@ -1,0 +1,200 @@
+/* GRAPHIC CODE */
+
+body{
+    background:#36515B;
+}
+
+.graphic {
+	width: 100%;
+	position: relative;
+}
+
+.graphic__prose {
+	width: 24rem;
+}
+
+.graphic__prose .trigger {
+    font-family: Montserrat,sans-serif,Tahoma;
+    margin-left: 80px;
+    margin-top: 200px;
+    height: 100px;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight:lighter;
+    color: #E2E6E7;
+    font-weight: bold;
+}
+
+.trigger span{
+    top: 0;
+    line-height: 12px;
+    font-family: Lora,serif;
+    font-size: 22px;
+    color: #A6B0B5;
+}
+
+.graphic__vis {
+	position: absolute;
+	top: 0;
+	margin-left: 40rem;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	height: 100vh;
+}
+
+.graphic__vis.is-fixed {
+	position: fixed;
+}
+
+.graphic__vis.is-bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.graphic__vis svg {
+/*	border: 1px dashed black;*/
+	border: 0px dashed black;
+    background: #fff;
+    top: 50%;
+	position: relative;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+
+}
+
+#snake-path,
+#group-snake-colors {
+    transform: scale(1.4) translate(-520px, -800px);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#snake-path {
+    visibility: hidden;
+}
+
+.piece {
+    stroke-width: 32;
+}
+
+.color-background {
+    fill: #36515B;
+    background-color: #36515B;
+}
+
+#svg-start-icon {
+    transform: scale(0.1) translate(8em, 65em);
+}
+
+#svg-finish-icon {
+    transform: scale(0.1) translate(395em, 235em);
+}
+
+/** PREHISTORY **/
+
+#svg-wheel-icon {
+    transform: scale(0.08) translate(80em, 93em);
+}
+
+#svg-boat-icon {
+    transform: scale(0.08) translate(135em, 93em);
+}
+
+#svg-alphabet-icon {
+    transform: scale(0.08) translate(190em, 93em);
+}
+
+#svg-clock-icon {
+    transform: scale(0.08) translate(250em, 93em);
+}
+
+/** BEFORE 1700 **/
+
+#svg-printer-icon {
+    transform: scale(0.08) translate(320em, 93em);
+}
+
+#svg-telescope-icon {
+    transform: scale(0.08) translate(375em, 93em);
+}
+
+#svg-thermometer-icon {
+    transform: scale(0.08) translate(425em, 100em);
+}
+
+#svg-physics-icon {
+    transform: scale(0.08) translate(448em, 150em);
+}
+
+/** XVII CENTURY **/
+#svg-engine-icon {
+    transform: scale(0.08) translate(418em, 197em);
+}
+
+#svg-sound-recording-icon {
+    transform: scale(0.08) translate(360em, 200em);
+}
+
+#svg-binary-code-icon {
+    transform: scale(0.08) translate(300em, 202em);
+}
+
+#svg-submarine-icon {
+    transform: scale(0.08) translate(240em, 200em);
+}
+
+/** XIX CENTURY **/
+#svg-train-icon {
+    transform: scale(0.08) translate(180em, 200em);
+}
+
+#svg-vintage-car-icon {
+    transform: scale(0.08) translate(120em, 200em);
+}
+
+#svg-battery-icon {
+    transform: scale(0.07) translate(80em, 232em);
+}
+
+#svg-telephone-icon {
+    transform: scale(0.08) translate(24em, 233em);
+}
+
+/** XX CENTURY **/
+#svg-color-tv-icon {
+    transform: scale(0.07) translate(28em, 325em);
+}
+
+#svg-cellphone-icon {
+    transform: scale(0.08) translate(70em, 310em);
+}
+
+#svg-rocket-icon {
+    transform: scale(0.08) translate(130em, 310em);
+}
+
+#svg-wifi-icon {
+    transform: scale(0.08) translate(190em, 310em);
+}
+
+/** XXI CENTURY **/
+#svg-ipad-icon {
+    transform: scale(0.08) translate(250em, 310em);
+}
+
+#svg-ebook-icon {
+    transform: scale(0.08) translate(310em, 310em);
+}
+
+#svg-airpods-icon {
+    transform: scale(0.08) translate(365em, 310em);
+}
+
+#svg-3d-icon {
+    transform: scale(0.08) translate(425em, 310em);
+}
+
