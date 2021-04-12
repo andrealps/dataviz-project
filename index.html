@@ -1,183 +1,141 @@
 <!DOCTYPE html>
-<html>
-
-<!-- In the HEAD section we have the external resources and dependencies -->
-
 <head>
-    <!-- Here we define the set of characters we use -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- For phone -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Here we get the D3 javascript library  -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.8.0/d3.min.js"></script>
-    <!-- Here we get the common styles that apply to similar elements -->
-    <link type="text/css" rel="stylesheet" href="./project.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src='./graphic.js'></script>
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7124072/6351572/css/fonts.css" />
+    <link rel='stylesheet' href='./graphic.css' />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+    <!--    <link type="text/css" rel="stylesheet" href="./people.css">-->
 </head>
 
-<body class="color-background">
-    <!-- This is the box where the title is -->
-    <div class="header">
+<body>
+    
+    <div class='library'>
+        <div class='library__graphic graphic'>
+            <div class='graphic__prose'>
+                
+                <p class='trigger' data-step='0'>PREHISTORY <br> <br><span>Undoubtedly, the most famous invention done in the stone age is the wheel, but some may be surprised to discover that the first boats were also created in this period of time. <br><br>
+                    In 1700aC the first alphabet was invented and by 100aC, in the iron age, clockmaking was being created and Tales de Mileto had discovered the first signs of electricity 
+                </span> </p>
+                
+                <p class='trigger' data-step='1'>BEFORE 17000 <br><br>
+                <span>In 1450 the printing press gets invented, allowing mass production and distribution of written text. Between the years of 1600 and 1610, Italian engineer Galileo Galilei comes up with different inventions such as the telescope and the basic thermometer.<br><br>The end of this era is marked by the beginning of modern physics with Isaac Newton’s laws of motion in 1687.</span></p>
 
-    </div>
+                <p class='trigger' data-step='2'>XVII Century<br><br>
+                <span>In 1712 an English inventor by the name of Thomas Newcomen creates a fuel burning engine used for the draining of mines. This invention would go on to be considered as the first steam engine.
+                <br><br>Honorable mentions from this era would be the invention of the first voice synthesizer, which allowed for the recording of sound, and the creation of the binary number system.
+                </span></p>
 
-    <div class="container">
-        <div class="row">
-            <!-- This is the box where the timeline is -->
-            <div class="col-sm-4" id="timeline-container">
-                Timeline dataviz
-            </div>
-            <!-- This is the box where the snake is -->
-            <div class="col-sm-8" id="snake-container">
+                <p class='trigger' data-step='3'>XIX Century<br><br>
+                <span>This century brought a great development on locomotion, with the inventions of the steam locomotive as well as the first gasoline-powered car. In 1800 Alessandro Volta creates the first battery, which inspires inventor Nikola Tesla who patents the first electric engine in 1888.<br><br>Nevertheless, locomotion was not the only prolific area in this century. Other massive inventions such as Alexander Bell’s telephone and Thomas Edison’s phonograph.
+                </span></p>
+
+                <p class='trigger' data-step='4'>XX Century<br><br>
+                <span>In this century, there are many huge advances such as the color tv and the first cellphone. Humanity also begins to explore space, with the first man on the moon and the first spacecraft.<br><br>This is also the period in which we start seeing a lot of inventions relating to technology. Some of the most important would be the Ethernet in 1973, the World Wide Web in 1989 and Wi-Fi in 1997.<br><br>Finally, this is also a century of new devices (CDs, the Walkman, USB drives...) and new software (first Linux version, eBay...)</span></p>
+                
+                <p class='trigger' data-step='5'>XXI Century<br><br>
+                <span>This current century has already brought so many new technologies such as
+                    tablets, e-books, wireless earphones and even 3D tv. And we are not even halfway through the century!<br><br>Just imagine what type of technologies may have been created when this period is over.
+                </span></p>
+                
+                <div class='graphic__vis'>
+                    <!--HERE GOES THE SNAKE-->
+                    <!-- This is the box where the snake is -->
+                    
+                </div>
+                
             </div>
         </div>
     </div>
+    
+    
 
-    <!-- Here goes the javascript bit with the D3.js code -->
-    <script type="text/javascript">
-        // ************************************************************ VARIABLES
-        var base_path_image = "./IMAGES/"; // basic path for images
-        var icons = ["wheel", "boat", "alphabet", "clock", "printer",
-        "telescope", "thermometer", "physics", "engine", "sound-recording", "binary-code",
-        "submarine", "train", "vintage-car", "battery", "telephone", "color-tv",
-        "cellphone", "rocket", "wifi", "ipad", "ebook", "airpods", "3d"]; //icons name
+    <!-- svg -->
+    <script>
 
-        var width_snake = "100%"; // width of snake-svg
-        var height_snake = "600"; // height of snake-svg
-        var snake_path_data =
-            "m 585 900 h 315 c 25 1 45 19 44 55 c 0 29 -17 44 -45 44 h -301 c -30 0 -46 17 -46 55 c 0 27 14 44 44 44 h 355";
-        var line; // path line to split
+        (function() {
 
-        // Variables to split snake
-        var numConcepts = 6; // number of concepts in the snake
-        var snakeLength; // length of the snake
-        var sampleInterval = .25;
-        var cumu = 0;
-
-        var colors = d3.scaleOrdinal().range(["#D44A6F", "#E67962", "#FDCB5B", "#80C0A1", "#5F8F78",
-            "#53B9C9", "#0086B2", "#8B6391", "#667981"
-        ]); // Empathy colors
-        var path = d3.line().curve(d3.curveCardinal);
-
-        // Snake path data
-        var snake_svg = d3.select("#snake-container").append("svg").attr("id", "svg-snake")
-            .attr("width", width_snake).attr("height", height_snake)
-            .attr("preserveAspectRatio", "xMidYMid meet")
-            .attr("viewBox", "0 0 700 500")
-            .attr("preserveAspectRatio", "xMinYMin meet"); // Snake svg
-        var snake_color_lines = snake_svg.append("g").attr("id", "group-snake-colors");
-
-        // ************************************************************ DRAW
-        showSnakePath();
-
-        // Show lines of the snake
-        showLine(function () {
-            var pieces = splitPath();
-
-            var pts = [];
-
-            pieces.forEach(function (x) {
-                x.segs.forEach(function (seg, i) {
-                    if (i > 0 && i % 2 === 0) {
-                        pts.push({
-                            id: x.id,
-                            seg: seg
-                        });
-                    }
-                });
-            });
-
-            drawSegments(pieces);
-        });
-
-        // Show Start and Finish icon
-        showIcons();
-        // ************************************************************ FUNCTIONS
-        function showIcons() {
-            icons.forEach(icon => createIcon(icon));
-        }
-
-        function createIcon(name) {
-            snake_svg.append("image").attr("id", "svg-" + name + "-icon").attr("class", "icon")
-            .attr("xlink:href", base_path_image + name + ".svg");
-        }
-
-        // Show snake path
-        function showSnakePath() {
-            line = snake_svg.append("path")
-                .attr("id", "snake-path")
-                .attr("d", snake_path_data);
-
-            snakeLength = line.node().getTotalLength(); // set snakeLength
-        }
-
-        // Split snake path into multiple pieces
-        function splitPath() {
-            var pieceSizes = [],
-                pieces = [];
-
-            for (var i = 0; i < numConcepts; i++) {
-                pieceSizes.push({
-                    i: i,
-                    size: numConcepts
-                });
+            // helper function so we can map over dom selection
+            function selectionToArray(selection) {
+                var len = selection.length
+                var result = []
+                for (var i = 0; i < len; i++) {
+                    result.push(selection[i])
+                }
+                return result
             }
 
-            var size = pieceSizes.reduce(function (a, b) {
-                return a + b.size;
-            }, 0);
+            function waypoints() {
+                // select elements
+                var graphicEl = document.querySelector('.graphic')
+                var graphicVisEl = graphicEl.querySelector('.graphic__vis')
+                var triggerEls = selectionToArray(graphicEl.querySelectorAll('.trigger'))
 
-            var pieceSize = snakeLength / size;
+                // viewport height
+                var viewportHeight = window.innerHeight
+                var halfViewportHeight = Math.floor(viewportHeight / 2)
 
-            pieceSizes.forEach(function (x, j) {
-                var segs = [];
-                for (var i = 0; i <= x.size + sampleInterval; i += sampleInterval) {
-                    pt = line.node().getPointAtLength((i * pieceSize) + (cumu * pieceSize));
-                    segs.push([pt.x, pt.y]);
+                // a global function creates and handles all the vis + updates
+                var graphic = createGraphic('.graphic')
+
+                // handle the fixed/static position of grahpic
+                var toggle = function(fixed, bottom) {
+                    if (fixed) graphicVisEl.classList.add('is-fixed')
+                    else graphicVisEl.classList.remove('is-fixed')
+
+                    if (bottom) graphicVisEl.classList.add('is-bottom')
+                    else graphicVisEl.classList.remove('is-bottom')
                 }
-                angle = Math.atan2(segs[1][1] - segs[0][1], segs[1][0] - segs[0][0]) * 180 / Math.PI;
-                pieces.push({
-                    id: j,
-                    segs: segs,
-                    angle: angle
-                });
-                cumu += x.size;
-            });
 
-            return pieces;
-        }
+                // setup a waypoint trigger for each trigger element
+                var waypoints = triggerEls.map(function(el) {
 
-        function showLine(callback) {
-            line.classed("hidden", false)
-                .attr("stroke-dasharray", snakeLength + " " + snakeLength)
-                .attr("stroke-dashoffset", snakeLength);
+                    // get the step, cast as number					
+                    var step = +el.getAttribute('data-step')
 
-                callback();
-        }
+                    return new Waypoint({
+                        element: el, // our trigger element
+                        handler: function(direction) {
+                            // if the direction is down then we use that number,
+                            // else, we want to trigger the previous one
+                            var nextStep = direction === 'down' ? step : Math.max(0, step - 1)
 
+                            // tell our graphic to update with a specific step
+                            graphic.update(nextStep)
+                        },
+                        offset: '50%',  // trigger halfway up the viewport
+                    })
+                })
 
-        function drawSegments(pieces) {
-            var lines = snake_color_lines.selectAll("path.piece")
-                .data(pieces)
-                .enter().append("path")
-                .attr("class", "piece color-background")
-                .attr("id", function(d, i) {return "piece_"+i})
-                .attr("d", function (d, i) {
-                    return path(d.segs);
-                });
+                // enter (top) / exit (bottom) graphic (toggle fixed position)
+                var enterWaypoint = new Waypoint({
+                    element: graphicEl,
+                    handler: function(direction) {
+                        var fixed = direction === 'down'
+                        var bottom = false
+                        toggle(fixed, bottom)
+                    },
+                })
 
-            lines
-                .style("stroke", function (d, i) {
-                    return colors(i);
-                });
-        }
+                var exitWaypoint = new Waypoint({
+                    element: graphicEl,
+                    handler: function(direction) {
+                        var fixed = direction === 'up'
+                        var bottom = !fixed
+                        toggle(fixed, bottom)
+                    },
+                    offset: 'bottom-in-view', // waypoints convenience instead of a calculation
+                })
+                }
+
+            waypoints()
+
+        })()
     </script>
-</body>
 
-</html>
+</body>

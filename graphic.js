@@ -13,18 +13,12 @@ window.createGraphic = function() {
     var graphicEl = d3.select('.graphic')
     var graphicVisEl = graphicEl.select('.graphic__vis')
     var graphicProseEl = graphicEl.select('.graphic__prose')
-    
-    
 
     var size = 600
     var height = 600
     var t = d3.transition()
             .duration(2000)
             .ease(d3.easeExp)
-//    var svg = graphicVisEl.append('svg')
-//            .attr('width', size + 'px')
-//            .attr('height', height + 'px')
-    
 
     // actions to take on each step of our scroll-driven story
     var steps = [
@@ -43,26 +37,6 @@ window.createGraphic = function() {
         },
 
         function step1() {
-            
-//            console.log("step1");
-//            var imgs = svg.selectAll("img").data([0]);
-//            imgs.enter()
-//                .append("img")
-//                .attr("xlink:href", "snake.png")
-//                .attr("x", "60")
-//                .attr("y", "60")
-//                .attr("width", "20")
-//                .attr("height", "20");
-//            
-//            
-//            
-//            svg
-//            .append("svg:image")
-//            .attr("xlink:href", "snake.png")
-//            .attr("width", 600)
-//            .attr("height", 600)
-//            .attr("x", 0)
-//            .attr("y", 0);
             d3.select("#piece_1")
                 .transition(t)
                 .style('opacity',1)
@@ -79,6 +53,7 @@ window.createGraphic = function() {
             d3.select("#piece_2")
                 .transition(t)
                 .style('opacity',1)
+            
             for(var i =8; i<12; i++){
                 d3.select(".icon-"+i+"-svg")
                 .transition(t)
@@ -91,6 +66,7 @@ window.createGraphic = function() {
             d3.select("#piece_3")
                 .transition(t)
                 .style('opacity',1)
+            
             for(var i =12; i<16; i++){
                 d3.select(".icon-"+i+"-svg")
                 .transition(t)
@@ -103,6 +79,7 @@ window.createGraphic = function() {
             d3.select("#piece_4")
                 .transition(t)
                 .style('opacity',1)
+            
             for(var i =16; i<20; i++){
                 d3.select(".icon-"+i+"-svg")
                 .transition(t)
@@ -114,6 +91,7 @@ window.createGraphic = function() {
             d3.select("#piece_5")
                 .transition(t)
                 .style('opacity',1)
+            
             for(var i =20; i<24; i++){
                 d3.select(".icon-"+i+"-svg")
                 .transition(t)
@@ -148,7 +126,7 @@ window.createGraphic = function() {
     
     
     // ************************************************************ VARIABLES
-        var base_path_image = "../IMAGES/"; // basic path for images
+        var base_path_image = "./IMAGES/"; // basic path for images
         var icons = ["wheel", "boat", "alphabet", "clock", "printer",
         "telescope", "thermometer", "physics", "engine", "sound-recording", "binary-code",
         "submarine", "train", "vintage-car", "battery", "telephone", "color-tv",
