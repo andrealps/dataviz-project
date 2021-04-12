@@ -198,3 +198,8 @@ body{
     transform: scale(0.08) translate(425em, 310em);
 }
 
+/**second viz**/
+
+.second_viz{
+    border: black;
+}
