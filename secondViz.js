@@ -76,7 +76,11 @@ var dataset = {
                 }
         ]
 };
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+var colors = d3.scaleOrdinal().range(["#D44A6F", "#E67962", "#FDCB5B", "#80C0A1", "#5F8F78",
+        "#53B9C9", "#0086B2", "#8B6391", "#667981"
+]); // Empathy colors
+
+var numWords = new Array(17);
 
 // SHOW SECOND VIZ ***********************************************
 
@@ -146,14 +150,16 @@ function showComputer() {
 function showBubbles() {
         var bubble = d3.pack(dataset)
                 .size([600, 900])
-                .padding(30);
+                .padding(15);
 
-        var nodes = d3.hierarchy(dataset).sum(function (d) {return d.Count;});
+        var nodes = d3.hierarchy(dataset).sum(function (d) {
+                return d.Count;
+        });
 
         var groupNodes = svg.append("g").attr("class", "group-nodes")
-        .attr("transform", function (d) {
-                return "translate(" + 400 + "," + -50 + ")";
-        });
+                .attr("transform", function (d) {
+                        return "translate(" + 400 + "," + -50 + ")";
+                });
 
         var node = groupNodes.selectAll(".node")
                 .data(bubble(nodes).descendants())
@@ -173,11 +179,19 @@ function showBubbles() {
                 });
 
         node.append("circle")
+                .on("mouseover", function(){
+                        d3.select(this).attr("r", d=> d.r + 7)
+                        .style("stroke", "rgba(255, 255, 255, 0.68)")
+                        .style("stroke-width", "2")
+                })
+                .on("mouseout", function(){
+                        d3.select(this).attr("r", d=> d.r).style("stroke", "none")
+                })
                 .attr("r", function (d) {
                         return d.r;
                 })
                 .style("fill", function (d, i) {
-                        return color(i);
+                        return colors(i);
                 });
 
         node.append("text")
@@ -188,7 +202,7 @@ function showBubbles() {
                 })
                 .attr("font-family", "sans-serif")
                 .attr("font-size", function (d) {
-                        return d.r / 5;
+                        return d.r / 4;
                 })
                 .attr("fill", "white");
 
