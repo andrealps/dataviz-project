@@ -194,7 +194,7 @@ function showBubbles() {
                         return colors(i);
                 });
 
-        node.append("text")
+        node.append("text").attr("class", "text-word")
                 .attr("dy", ".2em")
                 .style("text-anchor", "middle")
                 .text(function (d) {
@@ -205,6 +205,7 @@ function showBubbles() {
                         return d.r / 4;
                 })
                 .attr("fill", "white");
+                
 
         d3.select(self.frameElement)
                 .style("height", 400 + "px")
