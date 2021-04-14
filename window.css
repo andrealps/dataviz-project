@@ -19,12 +19,14 @@
     background: #2F3843;
     color: white;
     width: 80vw;
-    height: 80vh;
+    /*height: 80vh;*/
     margin: auto;
     margin-top: 12.5vh;
     border: 1px solid #acacac9f;
     border-radius: 6px;
     /*box-shadow: 0px 0px 20px #2F3843;*/
+    height: 0;
+    padding-bottom: 40%;
 }
 
 .titlebar {
@@ -140,7 +142,7 @@
     text-align: center;
     align-items: center;
     margin: 0 auto;
-    font-family: Montserrat,sans-serif;
+    font-family: Montserrat, sans-serif;
     display: table;
 }
 
@@ -218,4 +220,18 @@
 
 #text-technology-letter9 {
     color: #E67962;
+}
+
+#icons-div{
+    display: flex;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-cover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: min(8%, 6em);
 }
