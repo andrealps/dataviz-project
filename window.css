@@ -1,20 +1,20 @@
 /* ©2015 Johannes Jakob
    Made with <3 in Germany */
 
-   /* reference : https://codepen.io/JohJakob/pen/YPxgwo */
-  
-  /* window BEGIN */
-  
-  .window a {
+/* reference : https://codepen.io/JohJakob/pen/YPxgwo */
+
+/* window BEGIN */
+
+.window a {
     text-decoration: none;
-  }
-  
-  .window span {
+}
+
+.window span {
     line-height: 9px;
     vertical-align: 50%;
-  }
-  
-  .window {
+}
+
+.window {
     font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
     background: #2F3843;
     color: white;
@@ -25,9 +25,9 @@
     border: 1px solid #acacac9f;
     border-radius: 6px;
     /*box-shadow: 0px 0px 20px #2F3843;*/
-  }
-  
-  .titlebar {
+}
+
+.titlebar {
     background: #3C3F42;
     color: #fff;
     font-size: 11pt;
@@ -35,25 +35,25 @@
     text-align: center;
     width: 100%;
     height: 20px;
-    border-top: 1px solid rgb(92,95,98);
-    border-bottom: 1px solid rgb(92,95,98);
+    border-top: 1px solid rgb(92, 95, 98);
+    border-bottom: 1px solid rgb(92, 95, 98);
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     cursor: default;
-  }
-  
-  .buttons {
+}
+
+.buttons {
     padding-left: 8px;
     padding-top: 3px;
     float: left;
     line-height: 0px;
-  }
-  
-  .buttons:hover a {
+}
+
+.buttons:hover a {
     visibility: visible;
-  }
-  
-  .close {
+}
+
+.close {
     background: #ff5c5c;
     font-size: 9pt;
     width: 11px;
@@ -61,24 +61,24 @@
     border: 1px solid #e33e41;
     border-radius: 50%;
     display: inline-block;
-  }
-  
-  .close:active {
+}
+
+.close:active {
     background: #c14645;
     border: 1px solid #b03537;
-  }
-  
-  .close:active .closebutton {
+}
+
+.close:active .closebutton {
     color: #4e0002;
-  }
-  
-  .closebutton {
+}
+
+.closebutton {
     color: #820005;
     visibility: hidden;
     cursor: default;
-  }
-  
-  .minimize {
+}
+
+.minimize {
     background: #ffbd4c;
     font-size: 9pt;
     line-height: 11px;
@@ -88,24 +88,24 @@
     border: 1px solid #e09e3e;
     border-radius: 50%;
     display: inline-block;
-  }
-  
-  .minimize:active {
+}
+
+.minimize:active {
     background: #c08e38;
     border: 1px solid #af7c33;
-  }
-  
-  .minimize:active .minimizebutton {
+}
+
+.minimize:active .minimizebutton {
     color: #5a2607;
-  }
-  
-  .minimizebutton {
+}
+
+.minimizebutton {
     color: #9a5518;
     visibility: hidden;
     cursor: default;
-  }
-  
-  .zoom {
+}
+
+.zoom {
     background: #00ca56;
     font-size: 9pt;
     line-height: 11px;
@@ -115,50 +115,107 @@
     border: 1px solid #14ae46;
     border-radius: 50%;
     display: inline-block;
-  }
-  
-  .zoom:active {
+}
+
+.zoom:active {
     background: #029740;
     border: 1px solid #128435;
-  }
-  
-  .zoom:active .zoombutton {
+}
+
+.zoom:active .zoombutton {
     color: #003107;
-  }
-  
-  .zoombutton {
+}
+
+.zoombutton {
     color: #006519;
     visibility: hidden;
     cursor: default;
-  }
-  
-  .content {
-    padding: 10px;
+}
+
+.content {
+    /*padding: 10px;*/
 
     /* My code */
     height: 90%;
     text-align: center;
     align-items: center;
     margin: 0 auto;
-  }
-  
-  /* window END */
-  
-  /* content BEGIN */
-  
-  .window h3 {
+    font-family: Montserrat,sans-serif;
+    display: table;
+}
+
+/* window END */
+
+/* content BEGIN */
+
+.window h3 {
     margin-top: 0px;
-  }
-  
-  /* content END */
+}
+
+/* content END */
 
 
-  /************************* MY CODE ********************************/
-  #text-tecnology-div {
+/************************* MY CODE ********************************/
+.wrap-content {
+    display: table-cell;
+    vertical-align: middle;
+    height: 90%;
+}
+
+#text-tecnology-div {
     display: inline-flex;
     text-align: center;
-  }
+}
 
-  .text-window-intro {
-      text-transform: uppercase;
-  }
+.text-window-intro {
+    text-transform: uppercase;
+    padding: 1em;
+    font-size: min(1.6vw, 4em);
+}
+
+#text-tecnology-div p {
+    font-weight: bolder;
+    letter-spacing: 1.8vh;
+    font-size: min(8vw, 8em);
+    margin: 0;
+}
+
+#text-technology-letter0 {
+    color: #D44A6F;
+}
+
+#text-technology-letter1 {
+    color: #E67962;
+}
+
+#text-technology-letter2 {
+    color: #FDCB5B;
+}
+
+#text-technology-letter3 {
+    color: #80C0A1;
+}
+
+#text-technology-letter4 {
+    color: #5F8F78;
+}
+
+#text-technology-letter5 {
+    color: #53B9C9;
+}
+
+#text-technology-letter6 {
+    color: #0086B2;
+}
+
+#text-technology-letter7 {
+    color: #8B6391;
+}
+
+#text-technology-letter8 {
+    color: #D44A6F;
+}
+
+#text-technology-letter9 {
+    color: #E67962;
+}
