@@ -5,7 +5,8 @@ body{
 }
 
 .graphic {
-	width: 100%;
+    width: 90%;
+    margin: auto;
 	position: relative;
 }
 
@@ -55,13 +56,12 @@ body{
 .graphic__vis svg {
 /*	border: 1px dashed black;*/
 	border: 0px dashed black;
-    background: #fff;
     top: 50%;
 	position: relative;
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	transform: translateY(-50%);
-
+    width: 100vh;
 }
 
 #snake-path,

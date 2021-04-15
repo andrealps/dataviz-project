@@ -248,7 +248,7 @@ window.createGraphic = function() {
 
         // Snake path data
         var snake_svg = graphicVisEl.append('svg').attr("id", "svg-snake")
-            .attr("width", size + 'px').attr("height", size + 'px')
+            .attr("width", size + 'px').attr("height", 80 + 'vh')
             .attr("preserveAspectRatio", "xMidYMid meet")
             .attr("viewBox", "0 0 700 500")
             .attr("preserveAspectRatio", "xMinYMin meet"); // Snake svg
