@@ -37,7 +37,7 @@ body{
 .graphic__vis {
 	position: absolute;
 	top: 0;
-	margin-left: 40rem;
+	margin-left: 30rem;
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);

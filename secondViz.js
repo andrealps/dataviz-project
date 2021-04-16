@@ -3,6 +3,14 @@
 var width2 = 1400;
 var height2 = 900;
 var svg;
+var groupNodes;
+var computer;
+var viz;
+
+
+var t = d3.transition()
+            .duration(2000)
+            .ease(d3.easeLinear)
 
 var temporalCount = 100; // later discuss this value
 var dataset = {
@@ -89,18 +97,26 @@ window.onload = function () {
                 .append("svg")
                 .attr("width", width2)
                 .attr("height", height2);
-
+    
+        computer = svg.append("g");
+        viz = svg.append("g");
+        groupNodes = svg.append("g").attr("class", "group-nodes")
+                    .attr("transform", function (d) {
+                            return "translate(" + 400 + "," + -50 + ")";
+                    });
+    
         // Show computer
         showComputer();
         // Show bubbles
         showBubbles();
+        // Create Viz
+        createViz();
 }
 
 // FUNCTIONS ***********************************************
 
 //drawing the computer
 function showComputer() {
-        computer = svg.append("g");
         computer.append("rect")
                 .attr("x", 200)
                 .attr("y", 100)
@@ -156,10 +172,7 @@ function showBubbles() {
                 return d.Count;
         });
 
-        var groupNodes = svg.append("g").attr("class", "group-nodes")
-                .attr("transform", function (d) {
-                        return "translate(" + 400 + "," + -50 + ")";
-                });
+        
 
         var node = groupNodes.selectAll(".node")
                 .data(bubble(nodes).descendants())
@@ -187,6 +200,9 @@ function showBubbles() {
                 .on("mouseout", function(){
                         d3.select(this).attr("r", d=> d.r).style("stroke", "none")
                 })
+                .on("click", function(d){
+                        showViz( d.data.Name.substring(0, d.r / 3));
+                })
                 .attr("r", function (d) {
                         return d.r;
                 })
@@ -211,4 +227,35 @@ function showBubbles() {
                 .style("height", 400 + "px")
                 .style("width", 800 + "px");
 
+}
+
+function createViz(){
+    viz.append("image").attr("xlink:href", "./IMAGES/left-arrow.png")
+            .style('opacity',0)
+            .attr("x", 240)
+            .attr("y", 130)
+            .on("click", goBack);
+    
+    viz.append("text")
+            .text("The title's viz")
+            .attr("y", 175)
+            .attr("x", 320)
+            .attr("font-size", 40)
+            .attr("font-family", "monospace")
+            .attr("fill", "white")
+            .attr("id","viz_title")
+            .style("opacity", 0)
+}
+
+function showViz(name){
+    groupNodes.selectAll("*").transition(t).style("opacity",0)
+    console.log(name);
+    d3.select("#viz_title").transition(t).text(name+"'s viz")
+    viz.selectAll("*").transition(t).style("opacity",1);
+}
+
+function goBack(){
+    console.log("It's clicking")
+    viz.selectAll("*").transition(t).style("opacity",0);
+    groupNodes.selectAll("*").transition(t).style("opacity",1);
 }
