@@ -2,112 +2,128 @@
     "technology": {
         "index": 0,
         "date": "2021-04-12",
-        "content": "Nigerian fintech Appzone raises $10M for expansion and proprietary technology https://tcrn.ch/3241vDF by @ulonnaya",
+        "content": "Nigerian fintech Appzone raises $10M for expansion and proprietary technology by @ulonnaya",
+        "link": "https://tcrn.ch/3241vDF",
         "retweets": 210,
         "likes": 614
     },
     "social network": {
         "index": 1,
         "date": "2021-02-10",
-        "content": "Quilt, an audio social network focused on self care, raises $3.5 million in seed https://tcrn.ch/2MJ2sNZ by @jordanrcrook",
+        "content": "Quilt, an audio social network focused on self care, raises $3.5 million in seed by @jordanrcrook",
+        "link": "https://tcrn.ch/2MJ2sNZ",
         "retweets": 64,
         "likes": 112
     },
     "smartphone": {
         "index": 2,
         "date": "2021-04-05",
-        "content": "LG is shutting down its smartphone business worldwide https://techcrunch.com/2021/04/04/lg-is-shutting-down-its-smartphone-business-worldwide/",
+        "content": "LG is shutting down its smartphone business worldwide",
+        "link": "https://techcrunch.com/2021/04/04/lg-is-shutting-down-its-smartphone-business-worldwide/",
         "retweets": 201,
         "likes": 333
     },
     "programming": {
         "index": 3,
         "date": "2020-09-07",
-        "content": "China bans Scratch, MIT's programming language for kids https://tcrn.ch/2R0dL2u by @ritacyliao",
+        "content": "China bans Scratch, MIT's programming language for kids by @ritacyliao",
+        "link": "https://tcrn.ch/2R0dL2u",
         "retweets": 178,
         "likes": 259
     },
     "iphone": {
         "index": 4,
         "date": "2021-04-15",
-        "content": "You can now pay for BART using an iPhone or Apple Watch https://tcrn.ch/3ahoQXg by @grg",
+        "content": "You can now pay for BART using an iPhone or Apple Watch by @grg",
+        "link": "https://tcrn.ch/3ahoQXg",
         "retweets": 8,
         "likes": 24
     },
     "internet": {
         "index": 5,
         "date": "2021-01-29",
-        "content": "Internet of Cars: A driver-side primer on IoT implementation https://techcrunch.com/2021/01/29/internet-of-cars-a-driver-side-primer-on-iot-implementation/?tpcc=ECTW2020",
+        "content": "Internet of Cars: A driver-side primer on IoT implementation",
+        "link": "https://techcrunch.com/2021/01/29/internet-of-cars-a-driver-side-primer-on-iot-implementation/?tpcc=ECTW2020",
         "retweets": 130,
         "likes": 403
     },
     "hacker": {
         "index": 6,
         "date": "2021-03-23",
-        "content": "New: A week after a hacker stole $5.7M from Roll's hot wallet, the social currency startup still doesn't know how the hack happened. https://techcrunch.com/2021/03/23/roll-still-doesnt-know-how-its-hot-wallet-was-hacked/",
+        "content": "New: A week after a hacker stole $5.7M from Roll's hot wallet, the social currency startup still doesn't know how the hack happened.",
+        "link": "https://techcrunch.com/2021/03/23/roll-still-doesnt-know-how-its-hot-wallet-was-hacked/",
         "retweets": 12,
         "likes": 32
     },
     "decentralization": {
         "index": 7,
         "date": "2021-01-16",
-        "content": "Twitter’s vision of decentralization could also be the far-right’s internet endgame https://tcrn.ch/3nLLwT9 by @lucasmtny",
+        "content": "Twitter’s vision of decentralization could also be the far-right’s internet endgame by @lucasmtny",
+        "link": "https://tcrn.ch/3nLLwT9",
         "retweets": 35,
         "likes": 54
     },
     "cybersecurity": {
         "index": 8,
         "date": "2021-04-12",
-        "content": "New: President Biden has tapped two former NSA officials to senior government cybersecurity positions, including the new director of CISA. https://techcrunch.com/2021/04/12/bidens-cybersecurity-dream-team-takes-shape/",
+        "content": "New: President Biden has tapped two former NSA officials to senior government cybersecurity positions, including the new director of CISA.",
+        "link": "https://techcrunch.com/2021/04/12/bidens-cybersecurity-dream-team-takes-shape/",
         "retweets": 7,
         "likes": 31
     },
     "cryptocurrency": {
         "index": 9,
         "date": "2021-03-30",
-        "content": "PayPal's new feature allows U.S. consumers to check out using cryptocurrency https://tcrn.ch/2QGaBUL by @sarahintampa",
+        "content": "PayPal's new feature allows U.S. consumers to check out using cryptocurrency by @sarahintampa",
+        "link": "https://tcrn.ch/2QGaBUL",
         "retweets": 26,
         "likes": 49
     },
     "computing": {
         "index": 10,
         "date": "2021-04-08",
-        "content": "Verizon and Honda want to use 5G and edge computing to make driving safer https://tcrn.ch/31YWaxr by @rebeccabellan",
+        "content": "Verizon and Honda want to use 5G and edge computing to make driving safer by @rebeccabellan",
+        "link": "https://tcrn.ch/31YWaxr",
         "retweets": 14,
         "likes": 38
     },
     "blog": {
         "index": 11,
         "date": "2020-10-20",
-        "content": "Google calls DOJ's antitrust lawsuit 'deeply flawed' in GIF-laden blog response https://tcrn.ch/2T9kmJ1 by @etherington",
+        "content": "Google calls DOJ's antitrust lawsuit 'deeply flawed' in GIF-laden blog response by @etherington",
+        "link": "https://tcrn.ch/2T9kmJ1",
         "retweets": 16,
         "likes": 29
     },
     "blockchain": {
         "index": 12,
         "date": "2021-03-11",
-        "content": "The actor is going in on the blockchain. https://techcrunch.com/2021/03/10/why-terry-crews-is-launching-a-social-currency/?tpcc=ECTW2020",
+        "content": "The actor is going in on the blockchain.",
+        "link": "https://techcrunch.com/2021/03/10/why-terry-crews-is-launching-a-social-currency/?tpcc=ECTW2020",
         "retweets": 34,
         "likes": 85
     },
     "artificial-intelligence": {
         "index": 13,
         "date": "2021-04-13",
-        "content": "SambaNova raises $676M at a $5.1B valuation to double down on cloud-based AI software for enterprises https://tcrn.ch/3teX5pr by @ingridlunden",
+        "content": "SambaNova raises $676M at a $5.1B valuation to double down on cloud-based AI software for enterprises by @ingridlunden",
+        "link": "https://tcrn.ch/3teX5pr",
         "retweets": 12,
         "likes": 27
     },
     "antivirus": {
         "index": 14,
         "date": "2019-04-03",
-        "content": "Red Points closes $38M Series C for its 'antivirus' SaaS for brands https://tcrn.ch/2CRhfh7 by @riptari",
+        "content": "Red Points closes $38M Series C for its 'antivirus' SaaS for brands by @riptari",
+        "link": "https://tcrn.ch/2CRhfh7",
         "retweets": 36,
         "likes": 40
     },
     "Alexa": {
         "index": 15,
         "date": "2021-04-13",
-        "content": "With a team that helped build the brain behind Alexa, HomeX raises $90M https://tcrn.ch/3uIy1HZ by @bayareawriter",
+        "content": "With a team that helped build the brain behind Alexa, HomeX raises $90M by @bayareawriter",
+        "link": "https://tcrn.ch/3uIy1HZ",
         "retweets": 13,
         "likes": 27
     }
