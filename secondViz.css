@@ -1,3 +1,40 @@
-.second_viz{
+.second_viz {
     border: black;
+}
+
+
+/* Twitter */
+
+#svg-TechCrunch-icon {
+    transform: scale(0.025) translate(718em, 1160em);
+}
+
+#svg-twitter-verified-icon {
+    transform: scale(0.01) translate(3350em, 2800em);
+}
+
+#twitter-account-name {
+    font-size: 1.5em;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    fill: white;
+}
+
+#twitter-account-user,
+#tweet-date {
+    font-size: 1em;
+    font-family: Montserrat, sans-serif;
+    fill: #93a3a8b0;
+}
+
+#cir_TechCrunch {
+    fill: white
+}
+
+#tweet-content {
+    fill: white;
+    font-size: 1em;
+    font-family: Montserrat, sans-serif;
+    font-weight: lighter;
+    width: 50%;
 }

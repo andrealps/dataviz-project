@@ -12,7 +12,7 @@
     <link rel='stylesheet' href='./firstViz.css' />
     <link rel='stylesheet' href='./secondViz.css' />
     <link rel='stylesheet' href='./window.css' />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
     <!--    <link type="text/css" rel="stylesheet" href="./people.css">-->
 </head>
@@ -126,7 +126,7 @@
 
     <!-- svg -->
     <script>
-        (function () {
+        (function() {
 
             // helper function so we can map over dom selection
             function selectionToArray(selection) {
@@ -152,7 +152,7 @@
                 var graphic = createGraphic('.graphic')
 
                 // handle the fixed/static position of grahpic
-                var toggle = function (fixed, bottom) {
+                var toggle = function(fixed, bottom) {
                     if (fixed) graphicVisEl.classList.add('is-fixed')
                     else graphicVisEl.classList.remove('is-fixed')
 
@@ -161,14 +161,14 @@
                 }
 
                 // setup a waypoint trigger for each trigger element
-                var waypoints = triggerEls.map(function (el) {
+                var waypoints = triggerEls.map(function(el) {
 
                     // get the step, cast as number					
                     var step = +el.getAttribute('data-step')
 
                     return new Waypoint({
                         element: el, // our trigger element
-                        handler: function (direction) {
+                        handler: function(direction) {
                             // if the direction is down then we use that number,
                             // else, we want to trigger the previous one
                             var nextStep = direction === 'down' ? step : Math.max(0, step - 1)
@@ -183,7 +183,7 @@
                 // enter (top) / exit (bottom) graphic (toggle fixed position)
                 var enterWaypoint = new Waypoint({
                     element: graphicEl,
-                    handler: function (direction) {
+                    handler: function(direction) {
                         var fixed = direction === 'down'
                         var bottom = false
                         toggle(fixed, bottom)
@@ -192,7 +192,7 @@
 
                 var exitWaypoint = new Waypoint({
                     element: graphicEl,
-                    handler: function (direction) {
+                    handler: function(direction) {
                         var fixed = direction === 'up'
                         var bottom = !fixed
                         toggle(fixed, bottom)
