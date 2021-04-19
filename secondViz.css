@@ -1,3 +1,7 @@
+:root {
+    --color-gray-tweet: #7B8C93;
+}
+
 .second_viz {
     border: black;
 }
@@ -24,7 +28,7 @@
 #tweet-date {
     font-size: 1em;
     font-family: Montserrat, sans-serif;
-    fill: #93a3a8b0;
+    fill: var(--color-gray-tweet);
 }
 
 #cir_TechCrunch {

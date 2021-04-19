@@ -119,11 +119,6 @@ window.onload = function() {
         showBubbles();
         // Create Viz
         createViz();
-
-
-        // Testing, delete after
-        groupNodes.selectAll("*").transition(t).style("opacity", 0)
-        viz.selectAll("*").transition(t).style("opacity", 1);
     });
 }
 
@@ -269,9 +264,10 @@ function createTweet() {
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
     groupLogo.append("circle").attr("id", "cir_TechCrunch")
-        .attr("cx", "20em")
-        .attr("cy", "30em")
-        .attr("r", 40);
+        .attr("cx", 320)
+        .attr("cy", 480)
+        .attr("r", 40)
+        .style('opacity', 0);
     groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
         .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
         .style('opacity', 0);
@@ -303,8 +299,6 @@ function createTweet() {
         .style("opacity", 0);
 
     // Content of the tweet
-    groupTwitter.append("rect").attr("id", "tweet-rect");
-
     groupTwitter.append("text").attr("id", "tweet-content")
         .text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.")
         .attr("x", 382)
@@ -330,9 +324,15 @@ function goBack() {
 }
 
 function showTweet(name) {
+    let dataWord = twitter_data[0][name];
     // Word exists in json
-    if (twitter_data[0][name] !== undefined) {
+    if (dataWord !== undefined) {
+        d3.select("#tweet-date").transition(t).text(dataWord.date);
+        d3.select("#tweet-content").text(dataWord.content).call(wrap, 500).transition(t);
 
+        viz.select("#group-twitter").transition(t).style("opacity", 1);
+    } else {
+        viz.select("#group-twitter").transition(t).style("opacity", 0);
     }
 }
 
@@ -349,11 +349,11 @@ function wrap(text, width) {
             words = text.text().split(/\s+/).reverse(),
             word,
             line = [],
-            lineHeight = 1.1, // ems
+            lineHeight = 2.8, // ems
             y = text.attr("y"),
             x = text.attr("x"),
-            dy = parseFloat(text.attr("dy")),
-            tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+
+            tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", 1.5 + "em");
         while (word = words.pop()) {
             line.push(word);
             tspan.text(line.join(" "));
@@ -361,7 +361,8 @@ function wrap(text, width) {
                 line.pop();
                 tspan.text(line.join(" "));
                 line = [word];
-                tspan = text.append("tspan").attr("x", x).attr("y", y + dy).attr("dy", lineHeight + "em").text(word);
+                tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", lineHeight + "em").text(word);
+                lineHeight += 1.4;
             }
         }
     });
