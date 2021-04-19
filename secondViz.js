@@ -172,8 +172,6 @@ function showBubbles() {
                 return d.Count;
         });
 
-        
-
         var node = groupNodes.selectAll(".node")
                 .data(bubble(nodes).descendants())
                 .enter()
@@ -188,7 +186,7 @@ function showBubbles() {
 
         node.append("title")
                 .text(function (d) {
-                        return d.Name + ": " + d.Count;
+                        return "Click to see more info";
                 });
 
         node.append("circle")
