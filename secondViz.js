@@ -127,6 +127,7 @@ window.onload = function() {
         createViz();
 
 
+
         /*
         // Testing, delete after
         groupNodes.selectAll("*").transition(t).style("opacity", 0)
@@ -276,11 +277,17 @@ function createViz() {
 function createTweet() {
     let groupTwitter = viz.append("g").attr("id", "group-twitter");
 
+    groupTwitter.append("text").attr("id", "twitter-info-title")
+        .text("Tech Crunch's latest tweet :")
+        .attr("x", 290)
+        .attr("y", 420)
+        .style("opacity", 0);
+
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
     groupLogo.append("circle").attr("id", "cir_TechCrunch")
         .attr("cx", 320)
-        .attr("cy", 480)
+        .attr("cy", 500)
         .attr("r", 40)
         .style('opacity', 0);
     groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
@@ -339,7 +346,7 @@ function createPeekYear() {
     viz.append("text").attr("id", "peek-year-text")
         .text("Peak year")
         .attr("y", 350)
-        .attr("x", 370)
+        .attr("x", 375)
         .style("opacity", 0)
 
 }
@@ -390,7 +397,7 @@ function showTweet(name) {
     let dataWord = twitter_data[0][name];
     // Word exists in json
     if (dataWord !== undefined) {
-        d3.select("#tweet-date").transition(t).text(dataWord.date);
+        d3.select("#tweet-date").transition(t).text(new Date(dataWord.date).toDateString());
         d3.select("#tweet-content").text(dataWord.content).call(wrap, 500).transition(t);
 
         viz.select("#group-twitter").transition(t).style("opacity", 1);

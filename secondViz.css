@@ -18,7 +18,7 @@
 /* Twitter */
 
 #svg-TechCrunch-icon {
-    transform: scale(0.025) translate(718em, 1160em);
+    transform: scale(0.025) translate(718em, 1210em);
 }
 
 #svg-twitter-verified-icon {
@@ -52,6 +52,14 @@
     font-size: 1em;
     font-family: Montserrat, sans-serif;
     font-weight: lighter;
+    width: 50%;
+}
+
+#twitter-info-title {
+    fill: var(--color--empathy-light-green);
+    font-size: 1.2em;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
     width: 50%;
 }
 
