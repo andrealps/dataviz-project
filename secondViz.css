@@ -1,5 +1,13 @@
 :root {
     --color-gray-tweet: #7B8C93;
+    --color--empathy-red: #D44A6F;
+    --color--empathy-orange: #E67962;
+    --color--empathy-yellow: #FDCB5B;
+    --color--empathy-light-green: #80C0A1;
+    --color--empathy-dark-green: #5F8F78;
+    --color--empathy-light-blue: #53B9C9;
+    --color--empathy-dark-blue: #0086B2;
+    --color--empathy-purple: #8B6391;
 }
 
 .second_viz {
@@ -15,6 +23,10 @@
 
 #svg-twitter-verified-icon {
     transform: scale(0.01) translate(3350em, 2800em);
+}
+
+#svg-twitter-retweet-icon {
+    transform: scale(0.06) translate(400em, 600em);
 }
 
 #twitter-account-name {
@@ -41,4 +53,22 @@
     font-family: Montserrat, sans-serif;
     font-weight: lighter;
     width: 50%;
+}
+
+
+/* Peek year */
+
+#peek-year-number {
+    font-family: 'Orelega One', cursive;
+    fill: var(--color--empathy-red);
+    font-size: 7em;
+    letter-spacing: 5px;
+}
+
+#peek-year-text {
+    font-size: 1.5em;
+    font-family: Montserrat, sans-serif;
+    fill: white;
+    text-transform: uppercase;
+    font-weight: lighter;
 }

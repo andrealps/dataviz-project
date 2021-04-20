@@ -93,6 +93,9 @@ var numWords = new Array(17);
 var twitter_json_path = "./TWITTER/tweets.json";
 var twitter_data; // data after reading json
 var base_path_image = "./IMAGES/"; // basic path for images
+var base_path_data_words = "./DATA/";
+
+var dataWords = {}; // to store the year with more articles
 
 // SHOW SECOND VIZ ***********************************************
 
@@ -100,7 +103,10 @@ window.onload = function() {
     svg = d3.select("div.second_viz")
         .append("svg")
         .attr("width", width2)
-        .attr("height", height2);
+        .attr("height", height2)
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("viewBox", "0 0 700 900")
+        .attr("preserveAspectRatio", "xMinYMin meet");
 
     computer = svg.append("g");
     viz = svg.append("g");
@@ -119,6 +125,13 @@ window.onload = function() {
         showBubbles();
         // Create Viz
         createViz();
+
+
+        /*
+        // Testing, delete after
+        groupNodes.selectAll("*").transition(t).style("opacity", 0)
+        viz.selectAll("*").transition(t).style("opacity", 1);
+        */
     });
 }
 
@@ -255,6 +268,8 @@ function createViz() {
 
     // Twitter
     createTweet();
+    // Peek year
+    createPeekYear();
 
 }
 
@@ -299,12 +314,34 @@ function createTweet() {
         .style("opacity", 0);
 
     // Content of the tweet
-    groupTwitter.append("text").attr("id", "tweet-content")
+    let content = groupTwitter.append("text").attr("id", "tweet-content")
         .text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.")
         .attr("x", 382)
-        .attr("y", 500)
+        .attr("y", 480)
         .style("opacity", 0)
         .call(wrap, 500);
+
+    // Retweets, likes and link
+    /*
+    groupTwitter.append("image").attr("id", "svg-twitter-retweet-icon")
+        .attr("xlink:href", base_path_image + "retweet" + ".svg")
+        .style('opacity', 0);
+    */
+}
+
+function createPeekYear() {
+    viz.append("text").attr("id", "peek-year-number")
+        .text("2000")
+        .attr("y", 300)
+        .attr("x", 320)
+        .style("opacity", 0)
+
+    viz.append("text").attr("id", "peek-year-text")
+        .text("Peak year")
+        .attr("y", 350)
+        .attr("x", 370)
+        .style("opacity", 0)
+
 }
 
 function showViz(name) {
@@ -315,12 +352,38 @@ function showViz(name) {
 
     // Show last tweet of TechCrunch with the word
     showTweet(name);
+    // Show peek year
+    showPeekYear(name);
 }
 
 function goBack() {
     console.log("It's clicking")
     viz.selectAll("*").transition(t).style("opacity", 0);
     groupNodes.selectAll("*").transition(t).style("opacity", 1);
+}
+
+function showPeekYear(name) {
+    let peekYear = 0;
+
+    console.log(dataWords);
+    if (dataWords[name] !== undefined) {
+        peekYear = dataWords[name].year;
+        d3.select("#peek-year-number").text(peekYear);
+    } else {
+        readJson(`${base_path_data_words}${name}.json`, data => {
+            let infoPeekYear = data.map(data => {
+                let obj = {}
+                obj["year"] = data.year;
+                obj["articles"] = data.articles;
+                obj["percentage"] = data.percentage;
+                return obj;
+            }).reduce((prev, current) => (prev.percentage > current.percentage) ? prev : current);
+            dataWords[name] = infoPeekYear; // add data to dataWords
+
+            peekYear = infoPeekYear.year;
+            d3.select("#peek-year-number").text(peekYear);
+        });
+    }
 }
 
 function showTweet(name) {
