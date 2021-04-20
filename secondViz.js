@@ -102,11 +102,8 @@ var dataWords = {}; // to store the year with more articles
 window.onload = function() {
     svg = d3.select("div.second_viz")
         .append("svg")
-        .attr("width", width2)
-        .attr("height", height2)
         .attr("preserveAspectRatio", "xMidYMid meet")
-        .attr("viewBox", "0 0 700 900")
-        .attr("preserveAspectRatio", "xMinYMin meet");
+        .attr("viewBox", "0 0 1450 900");
 
     computer = svg.append("g");
     viz = svg.append("g");
