@@ -126,13 +126,10 @@ window.onload = function() {
         // Create Viz
         createViz();
 
-
-
-        /*
         // Testing, delete after
         groupNodes.selectAll("*").transition(t).style("opacity", 0)
         viz.selectAll("*").transition(t).style("opacity", 1);
-        */
+
     });
 }
 
@@ -271,7 +268,36 @@ function createViz() {
     createTweet();
     // Peek year
     createPeekYear();
+    // Fact
+    createFact();
+}
 
+function createFact() {
+    let groupFact = viz.append("g").attr("id", "group-fact")
+        .attr("transform", "translate(0, 35)");
+
+    // Fun fact title
+    groupFact.append("text").attr("id", "fact-info-title")
+        .text("Fun fact :")
+        .attr("x", 760)
+        .attr("y", 200)
+        .style("opacity", 0);
+
+    // People
+    for (let i = 0; i < 5; i++) {
+        // People   
+        groupFact.append("image").attr("class", "fact-person")
+            .attr("id", `fact-person_${i}`)
+            .attr("xlink:href", base_path_image + "man" + ".svg")
+            .style('opacity', 0)
+    }
+
+    // Fun fact description
+    groupFact.append("text").attr("id", "fact-description")
+        .text("This is the fun fact related with the word")
+        .attr("x", 760)
+        .attr("y", 380)
+        .style("opacity", 0);
 }
 
 function createTweet() {
@@ -326,7 +352,7 @@ function createTweet() {
         .attr("x", 382)
         .attr("y", 480)
         .style("opacity", 0)
-        .call(wrap, 500);
+        .call(wrap, 420);
 
     // Retweets, likes and link
     /*
@@ -398,7 +424,7 @@ function showTweet(name) {
     // Word exists in json
     if (dataWord !== undefined) {
         d3.select("#tweet-date").transition(t).text(new Date(dataWord.date).toDateString());
-        d3.select("#tweet-content").text(dataWord.content).call(wrap, 500).transition(t);
+        d3.select("#tweet-content").text(dataWord.content).call(wrap, 420).transition(t);
 
         viz.select("#group-twitter").transition(t).style("opacity", 1);
     } else {

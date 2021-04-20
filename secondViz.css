@@ -52,7 +52,6 @@
     font-size: 1em;
     font-family: Montserrat, sans-serif;
     font-weight: lighter;
-    width: 50%;
 }
 
 #twitter-info-title {
@@ -60,7 +59,6 @@
     font-size: 1.2em;
     font-family: Montserrat, sans-serif;
     text-transform: uppercase;
-    width: 50%;
 }
 
 
@@ -78,5 +76,49 @@
     font-family: Montserrat, sans-serif;
     fill: white;
     text-transform: uppercase;
+    font-weight: lighter;
+}
+
+
+/* Fun fact */
+
+#fact-info-title {
+    fill: var(--color--empathy-yellow);
+    font-size: 1.2em;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+}
+
+
+/*
+.fact-person {
+    color: white;
+}
+*/
+
+#fact-person_0 {
+    transform: scale(0.25) translate(180em, 55em);
+}
+
+#fact-person_1 {
+    transform: scale(0.25) translate(200em, 55em);
+}
+
+#fact-person_2 {
+    transform: scale(0.25) translate(220em, 55em);
+}
+
+#fact-person_3 {
+    transform: scale(0.25) translate(240em, 55em);
+}
+
+#fact-person_4 {
+    transform: scale(0.25) translate(260em, 55em);
+}
+
+#fact-description {
+    fill: white;
+    font-size: 1em;
+    font-family: Montserrat, sans-serif;
     font-weight: lighter;
 }
