@@ -14,6 +14,18 @@
     border: black;
 }
 
+#svg-x-icon {
+    transform: scale(0.04) translate(1750em, 235em);
+}
+
+#svg-square-icon {
+    transform: scale(0.04) translate(1660em, 235em);
+}
+
+#svg-substract-icon {
+    transform: scale(0.04) translate(1570em, 235em);
+}
+
 
 /* Twitter */
 

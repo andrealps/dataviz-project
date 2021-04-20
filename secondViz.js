@@ -181,6 +181,15 @@ function showComputer() {
         .attr("y1", 790)
         .attr("x2", 900)
         .attr("y2", 790);
+
+    computer.append("image").attr("id", "svg-x-icon")
+        .attr("xlink:href", base_path_image + "x" + ".svg");
+
+    computer.append("image").attr("id", "svg-square-icon")
+        .attr("xlink:href", base_path_image + "square" + ".svg");
+
+    computer.append("image").attr("id", "svg-substract-icon")
+        .attr("xlink:href", base_path_image + "substract" + ".svg");
 }
 
 function showBubbles() {
