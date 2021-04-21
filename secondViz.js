@@ -6,6 +6,7 @@ var svg;
 var groupNodes;
 var computer;
 var viz;
+var groupFact;
 
 
 var t = d3.transition()
@@ -111,6 +112,8 @@ window.onload = function() {
         .attr("transform", function(d) {
             return "translate(" + 400 + "," + -50 + ")";
         });
+    groupFact = viz.append("g").attr("id", "group-fact")
+        .attr("transform", "translate(0, 23)");
 
     // Read twitter data before showing dataviz because it's asynchronous
     readJson(twitter_json_path, dataTweets => {
@@ -279,35 +282,35 @@ function createViz() {
 }
 
 function createFact() {
-    let groupFact = viz.append("g").attr("id", "group-fact")
-        .attr("transform", "translate(0, 23)");
+    
 
     // Fun fact title
     groupFact.append("text").attr("id", "fact-info-title")
         .text("Fun fact :")
-        .attr("x", 835)
+        .attr("x", 785)
         .attr("y", 190)
         .style("opacity", 0);
 
-    let startX = 250,
-        startY = 65;
+    let startX = 295,
+        startY = 80;
     // People
     for (let i = 0; i < 10; i++) {
         groupFact.append("image").attr("class", "fact-person")
             .attr("id", `fact-person_${i}`)
             .attr("xlink:href", base_path_image + "man" + ".svg")
             .style('opacity', 0)
-            .style("transform", `scale(0.2) 
+            .style("transform", `scale(0.17) 
                 translate(${startX + (i<5? 20*i: 20*(i-5))}em, 
                 ${(i<5? startY: startY+35)}em)`)
     }
 
     // Fun fact description
     groupFact.append("text").attr("id", "fact-description")
-        .text("This is the fun fact related with the word")
-        .attr("x", 835)
-        .attr("y", 450)
-        .style("opacity", 0);
+        .text("5 out of 10 people think artificial intelligence could be dangerous for humanity")
+        .attr("x", 785)
+        .attr("y", 410)
+        .style("opacity", 0)
+        .call(wrap, 400);
 }
 
 function createTweet() {
@@ -315,26 +318,26 @@ function createTweet() {
 
     groupTwitter.append("text").attr("id", "twitter-info-title")
         .text("Tech Crunch's latest tweet :")
-        .attr("x", 270)
-        .attr("y", 420)
+        .attr("x", 250)
+        .attr("y", 500)
         .style("opacity", 0);
 
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
-    groupLogo.append("circle").attr("id", "cir_TechCrunch")
-        .attr("cx", 300)
-        .attr("cy", 500)
-        .attr("r", 40)
-        .style('opacity', 0);
-    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
-        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
-        .style('opacity', 0);
+//    groupLogo.append("circle").attr("id", "cir_TechCrunch")
+//        .attr("cx", 300)
+//        .attr("cy", 500)
+//        .attr("r", 40)
+//        .style('opacity', 0);
+//    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
+//        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
+//        .style('opacity', 0);
 
     // Name of the account: TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-name")
         .text("TechCrunch")
-        .attr("x", 360)
-        .attr("y", 470)
+        .attr("x", 250)
+        .attr("y", 550)
         .style("opacity", 0);
 
     // Verified icon 
@@ -345,22 +348,22 @@ function createTweet() {
     // @TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-user")
         .text("@TechCrunch •")
-        .attr("x", 552)
-        .attr("y", 466)
+        .attr("x", 452)
+        .attr("y", 546)
         .style("opacity", 0);
 
     // Date
     groupTwitter.append("text").attr("id", "tweet-date")
         .text("01/01/01")
-        .attr("x", 680)
-        .attr("y", 466)
+        .attr("x", 580)
+        .attr("y", 546)
         .style("opacity", 0);
 
     // Content of the tweet
     let content = groupTwitter.append("text").attr("id", "tweet-content")
         .text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.")
-        .attr("x", 362)
-        .attr("y", 480)
+        .attr("x", 252)
+        .attr("y", 560)
         .style("opacity", 0)
         .call(wrap, 420);
 
@@ -375,14 +378,14 @@ function createTweet() {
 function createPeekYear() {
     viz.append("text").attr("id", "peek-year-number")
         .text("2000")
-        .attr("y", 300)
-        .attr("x", 320)
+        .attr("y", 590)
+        .attr("x", 825)
         .style("opacity", 0)
 
     viz.append("text").attr("id", "peek-year-text")
         .text("Peak year")
-        .attr("y", 350)
-        .attr("x", 375)
+        .attr("y", 640)
+        .attr("x", 880)
         .style("opacity", 0)
 
 }
@@ -392,11 +395,13 @@ function showViz(name) {
     console.log(name);
     d3.select("#viz_title").transition(t).text(name + "'s viz")
     viz.selectAll("*").transition(t).style("opacity", 1);
-
+    groupFact.selectAll("*").transition(t).style("opacity", 1);
     // Show last tweet of TechCrunch with the word
     showTweet(name);
     // Show peek year
     showPeekYear(name);
+    //Show fun dact
+    showFunFact(name);
 }
 
 function goBack() {
@@ -440,6 +445,40 @@ function showTweet(name) {
     } else {
         viz.select("#group-twitter").transition(t).style("opacity", 0);
     }
+}
+
+function showFunFact(name){
+    d3.json("./DATA/questions.json", function (error, data) {
+        for (var i=0 ; i<data.length ; i++) {
+            if(name==data[i].topic){
+                //paint people
+                groupFact.selectAll("image").remove();
+                let startX = 295,startY = 80;
+                for (let i = 0; i < 10; i++) {
+                    groupFact.append("image").attr("class", "fact-person")
+                        .attr("id", `fact-person_${i}`)
+                        .attr("xlink:href", base_path_image + "man-color" + ".svg")
+                        .style('opacity', 1)
+                        .style("transform", `scale(0.17) 
+                            translate(${startX + (i<5? 20*i: 20*(i-5))}em, 
+                            ${(i<5? startY: startY+35)}em)`)
+                }
+                for (let j = data[i].result; j < 10; j++) {
+                    groupFact.append("image").attr("class", "fact-person")
+                        .attr("id", `fact-person_${i}`)
+                        .attr("xlink:href", base_path_image + "man" + ".svg")
+                        .style('opacity', 1)
+                        .style("transform", `scale(0.17) 
+                            translate(${startX + (j<5? 20*j: 20*(j-5))}em, 
+                            ${(j<5? startY: startY+35)}em)`)
+                }
+                
+                //set text
+                d3.select("#fact-description").text(data[i].result+" "+data[i].question).call(wrap, 380);
+                console.log(data[i].result+" "+data[i].question);
+            }
+        }
+    })
 }
 
 function readJson(filePath, callBack) {
