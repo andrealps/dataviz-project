@@ -101,6 +101,15 @@
     text-transform: uppercase;
 }
 
+/* VS */
+
+#vs-title {
+    fill: var(--color--empathy-light-blue);
+    font-size: 1.2em;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+}
+
 
 /* https://www.flaticon.com/free-icon/man_3439472?term=man&page=1&position=21&page=1&position=21&related_id=3439472&origin=tag */
 

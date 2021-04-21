@@ -279,6 +279,8 @@ function createViz() {
     createPeekYear();
     // Fact
     createFact();
+    // VS
+    createVS();
 }
 
 function createFact() {
@@ -390,24 +392,78 @@ function createPeekYear() {
 
 }
 
+function createVS(){
+    viz.append("text").attr("id", "vs-title")
+        .text("New York Times VS TedCrunch :")
+        .attr("x", 250)
+        .attr("y", 210)
+        .style("opacity", 1);
+    
+    const arcGenerator = d3.arc()
+          .outerRadius(120)
+          .innerRadius(0)
+          .startAngle(-Math.PI / 2)
+          .endAngle(Math.PI / 2);
+    
+    const arc = viz.append("path")
+          .attr("transform", "translate(400,350)")
+          .attr("d", arcGenerator())
+          .style("fill", "#FDCB5B");
+    
+    viz.append("text").attr("id", "nyt-number")
+        .text("12")
+        .attr("x", 395)
+        .attr("y", 330)
+        .attr("font-size", 20)
+        .style("fill", "white")
+        .style("text-align", "center") 
+        .style("opacity", 1);
+    
+    const arcGenerator2 = d3.arc()
+          .outerRadius(90)
+          .innerRadius(0)
+          .startAngle(Math.PI/2)
+          .endAngle(-Math.PI/2);
+    
+    const arc2 = viz.append("path")
+          .attr("transform", "translate(400,350),rotate(180 0 0) ")
+          .attr("d", arcGenerator2())
+          .style("fill", "#80C0A1");
+    
+    viz.append("text").attr("id", "tc-number")
+        .text("9")
+        .attr("x", 400)
+        .attr("y", 380)
+        .attr("font-size", 20)
+        .style("fill", "white")
+        .style("text-align", "center")
+        .style("opacity", 1);
+}
+
 function showViz(name) {
     groupNodes.selectAll("*").transition(t).style("opacity", 0)
+    groupNodes.selectAll("*").transition(t).style("display", "none")
     console.log(name);
+    
     d3.select("#viz_title").transition(t).text(name + "'s viz")
     viz.selectAll("*").transition(t).style("opacity", 1);
     groupFact.selectAll("*").transition(t).style("opacity", 1);
+    
     // Show last tweet of TechCrunch with the word
     showTweet(name);
     // Show peek year
     showPeekYear(name);
     //Show fun dact
     showFunFact(name);
+    //Show VS
+    showVS(name);
 }
 
 function goBack() {
     console.log("It's clicking")
     viz.selectAll("*").transition(t).style("opacity", 0);
     groupNodes.selectAll("*").transition(t).style("opacity", 1);
+    groupNodes.selectAll("*").transition(t).style("display", "block")
 }
 
 function showPeekYear(name) {
@@ -479,6 +535,10 @@ function showFunFact(name){
             }
         }
     })
+}
+
+function showVS(name){
+    
 }
 
 function readJson(filePath, callBack) {
