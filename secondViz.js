@@ -293,19 +293,13 @@ function createFact() {
         startY = 65;
     // People
     for (let i = 0; i < 10; i++) {
-        // First row   
-        if (i < 5)
-            groupFact.append("image").attr("class", "fact-person")
+        groupFact.append("image").attr("class", "fact-person")
             .attr("id", `fact-person_${i}`)
             .attr("xlink:href", base_path_image + "man" + ".svg")
             .style('opacity', 0)
-            .style("transform", `scale(0.2) translate(${startX + 20*i}em, ${startY}em)`)
-        else
-            groupFact.append("image").attr("class", "fact-person")
-            .attr("id", `fact-person_${i}`)
-            .attr("xlink:href", base_path_image + "man" + ".svg")
-            .style('opacity', 0)
-            .style("transform", `scale(0.2) translate(${startX + 20*(i-5)}em, ${startY+35}em)`)
+            .style("transform", `scale(0.2) 
+                translate(${startX + (i<5? 20*i: 20*(i-5))}em, 
+                ${(i<5? startY: startY+35)}em)`)
     }
 
     // Fun fact description
