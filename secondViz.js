@@ -280,29 +280,39 @@ function createViz() {
 
 function createFact() {
     let groupFact = viz.append("g").attr("id", "group-fact")
-        .attr("transform", "translate(0, 35)");
+        .attr("transform", "translate(0, 23)");
 
     // Fun fact title
     groupFact.append("text").attr("id", "fact-info-title")
         .text("Fun fact :")
-        .attr("x", 760)
-        .attr("y", 200)
+        .attr("x", 835)
+        .attr("y", 190)
         .style("opacity", 0);
 
+    let startX = 250,
+        startY = 65;
     // People
-    for (let i = 0; i < 5; i++) {
-        // People   
-        groupFact.append("image").attr("class", "fact-person")
+    for (let i = 0; i < 10; i++) {
+        // First row   
+        if (i < 5)
+            groupFact.append("image").attr("class", "fact-person")
             .attr("id", `fact-person_${i}`)
             .attr("xlink:href", base_path_image + "man" + ".svg")
             .style('opacity', 0)
+            .style("transform", `scale(0.2) translate(${startX + 20*i}em, ${startY}em)`)
+        else
+            groupFact.append("image").attr("class", "fact-person")
+            .attr("id", `fact-person_${i}`)
+            .attr("xlink:href", base_path_image + "man" + ".svg")
+            .style('opacity', 0)
+            .style("transform", `scale(0.2) translate(${startX + 20*(i-5)}em, ${startY+35}em)`)
     }
 
     // Fun fact description
     groupFact.append("text").attr("id", "fact-description")
         .text("This is the fun fact related with the word")
-        .attr("x", 760)
-        .attr("y", 380)
+        .attr("x", 835)
+        .attr("y", 450)
         .style("opacity", 0);
 }
 

@@ -102,31 +102,14 @@
 }
 
 
-/*
+/* 
 .fact-person {
     color: white;
 }
 */
 
-#fact-person_0 {
-    transform: scale(0.25) translate(180em, 55em);
-}
 
-#fact-person_1 {
-    transform: scale(0.25) translate(200em, 55em);
-}
-
-#fact-person_2 {
-    transform: scale(0.25) translate(220em, 55em);
-}
-
-#fact-person_3 {
-    transform: scale(0.25) translate(240em, 55em);
-}
-
-#fact-person_4 {
-    transform: scale(0.25) translate(260em, 55em);
-}
+/* https://www.flaticon.com/free-icon/man_3439472?term=man&page=1&position=21&page=1&position=21&related_id=3439472&origin=tag */
 
 #fact-description {
     fill: white;
