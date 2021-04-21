@@ -321,14 +321,14 @@ function createTweet() {
 
     groupTwitter.append("text").attr("id", "twitter-info-title")
         .text("Tech Crunch's latest tweet :")
-        .attr("x", 290)
+        .attr("x", 270)
         .attr("y", 420)
         .style("opacity", 0);
 
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
     groupLogo.append("circle").attr("id", "cir_TechCrunch")
-        .attr("cx", 320)
+        .attr("cx", 300)
         .attr("cy", 500)
         .attr("r", 40)
         .style('opacity', 0);
@@ -339,7 +339,7 @@ function createTweet() {
     // Name of the account: TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-name")
         .text("TechCrunch")
-        .attr("x", 380)
+        .attr("x", 360)
         .attr("y", 470)
         .style("opacity", 0);
 
@@ -351,21 +351,21 @@ function createTweet() {
     // @TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-user")
         .text("@TechCrunch •")
-        .attr("x", 572)
+        .attr("x", 552)
         .attr("y", 466)
         .style("opacity", 0);
 
     // Date
     groupTwitter.append("text").attr("id", "tweet-date")
         .text("01/01/01")
-        .attr("x", 700)
+        .attr("x", 680)
         .attr("y", 466)
         .style("opacity", 0);
 
     // Content of the tweet
     let content = groupTwitter.append("text").attr("id", "tweet-content")
         .text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.")
-        .attr("x", 382)
+        .attr("x", 362)
         .attr("y", 480)
         .style("opacity", 0)
         .call(wrap, 420);
