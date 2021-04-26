@@ -13,6 +13,6 @@
  {"topic":"Alexa","result":7,"question":" out of 10 people have owned an Alexa"},
  {"topic":"antivirus","result":8,"question":" out of 10 people have an antivirus in their personal computer"},
  {"topic":"hacker","result":5,"question":" out of 10 people know what an ethical hacker is"},
- {"topic":"internet","result":10,"question":" out of 10 people think it's important to educate children on cybersecurity"},
+ {"topic":"cybersecurity","result":10,"question":" out of 10 people think it's important to educate children on cybersecurity"},
  {"topic":"blog","result":7,"question":" out of 10 people have owned a blog"}
 ]
