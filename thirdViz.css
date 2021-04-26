@@ -1,9 +1,19 @@
+#third_viz_title {
+    font-family: Montserrat, sans-serif, Tahoma;
+    font-size: calc(1vw + 1em);
+    color: #d7c8ff;
+    text-align: center;
+}
+
+
+/** SVG ********************************************/
+
 #svg-SOLID-icon {
     transform: scale(0.5) translate(10em, 20em);
 }
 
 #group-SOLID {
-    transform: translate(36%, 15em);
+    transform: translate(38%, 8em);
 }
 
 .line-SOLID {

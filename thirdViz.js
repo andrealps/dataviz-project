@@ -11,7 +11,8 @@ window.addEventListener("load", function() {
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("viewBox", `0 0 ${width} ${height}`);
 
-    solid_group = svgSolid.append("g").attr("id", "group-SOLID");
+    solid_group = svgSolid.append("g").attr("id", "group-SOLID")
+        .attr("transform", "translate(0, 23)");
 
     createGraph();
 }, false);
