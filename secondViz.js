@@ -100,7 +100,7 @@ var dataWords = {}; // to store the year with more articles
 
 // SHOW SECOND VIZ ***********************************************
 
-window.onload = function() {
+window.addEventListener("load", function() {
     svg = d3.select("div.second_viz")
         .append("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
@@ -131,7 +131,7 @@ window.onload = function() {
         viz.selectAll("*").transition(t).style("opacity", 1);
 
     });
-}
+}, false);
 
 // FUNCTIONS ***********************************************
 
@@ -284,7 +284,7 @@ function createViz() {
 }
 
 function createFact() {
-    
+
 
     // Fun fact title
     groupFact.append("text").attr("id", "fact-info-title")
@@ -326,14 +326,14 @@ function createTweet() {
 
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
-//    groupLogo.append("circle").attr("id", "cir_TechCrunch")
-//        .attr("cx", 300)
-//        .attr("cy", 500)
-//        .attr("r", 40)
-//        .style('opacity', 0);
-//    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
-//        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
-//        .style('opacity', 0);
+    //    groupLogo.append("circle").attr("id", "cir_TechCrunch")
+    //        .attr("cx", 300)
+    //        .attr("cy", 500)
+    //        .attr("r", 40)
+    //        .style('opacity', 0);
+    //    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
+    //        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
+    //        .style('opacity', 0);
 
     // Name of the account: TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-name")
@@ -392,44 +392,44 @@ function createPeekYear() {
 
 }
 
-function createVS(){
+function createVS() {
     viz.append("text").attr("id", "vs-title")
         .text("New York Times VS TedCrunch :")
         .attr("x", 250)
         .attr("y", 210)
         .style("opacity", 1);
-    
+
     const arcGenerator = d3.arc()
-          .outerRadius(120)
-          .innerRadius(0)
-          .startAngle(-Math.PI / 2)
-          .endAngle(Math.PI / 2);
-    
+        .outerRadius(120)
+        .innerRadius(0)
+        .startAngle(-Math.PI / 2)
+        .endAngle(Math.PI / 2);
+
     const arc = viz.append("path")
-          .attr("transform", "translate(400,350)")
-          .attr("d", arcGenerator())
-          .style("fill", "#FDCB5B");
-    
+        .attr("transform", "translate(400,350)")
+        .attr("d", arcGenerator())
+        .style("fill", "#FDCB5B");
+
     viz.append("text").attr("id", "nyt-number")
         .text("12")
         .attr("x", 395)
         .attr("y", 330)
         .attr("font-size", 20)
         .style("fill", "white")
-        .style("text-align", "center") 
+        .style("text-align", "center")
         .style("opacity", 1);
-    
+
     const arcGenerator2 = d3.arc()
-          .outerRadius(90)
-          .innerRadius(0)
-          .startAngle(Math.PI/2)
-          .endAngle(-Math.PI/2);
-    
+        .outerRadius(90)
+        .innerRadius(0)
+        .startAngle(Math.PI / 2)
+        .endAngle(-Math.PI / 2);
+
     const arc2 = viz.append("path")
-          .attr("transform", "translate(400,350),rotate(180 0 0) ")
-          .attr("d", arcGenerator2())
-          .style("fill", "#80C0A1");
-    
+        .attr("transform", "translate(400,350),rotate(180 0 0) ")
+        .attr("d", arcGenerator2())
+        .style("fill", "#80C0A1");
+
     viz.append("text").attr("id", "tc-number")
         .text("9")
         .attr("x", 400)
@@ -444,11 +444,11 @@ function showViz(name) {
     groupNodes.selectAll("*").transition(t).style("opacity", 0)
     groupNodes.selectAll("*").transition(t).style("display", "none")
     console.log(name);
-    
+
     d3.select("#viz_title").transition(t).text(name + "'s viz")
     viz.selectAll("*").transition(t).style("opacity", 1);
     groupFact.selectAll("*").transition(t).style("opacity", 1);
-    
+
     // Show last tweet of TechCrunch with the word
     showTweet(name);
     // Show peek year
@@ -503,13 +503,14 @@ function showTweet(name) {
     }
 }
 
-function showFunFact(name){
-    d3.json("./DATA/questions.json", function (error, data) {
-        for (var i=0 ; i<data.length ; i++) {
-            if(name==data[i].topic){
+function showFunFact(name) {
+    d3.json("./DATA/questions.json", function(error, data) {
+        for (var i = 0; i < data.length; i++) {
+            if (name == data[i].topic) {
                 //paint people
                 groupFact.selectAll("image").remove();
-                let startX = 295,startY = 80;
+                let startX = 295,
+                    startY = 80;
                 for (let i = 0; i < 10; i++) {
                     groupFact.append("image").attr("class", "fact-person")
                         .attr("id", `fact-person_${i}`)
@@ -528,17 +529,17 @@ function showFunFact(name){
                             translate(${startX + (j<5? 20*j: 20*(j-5))}em, 
                             ${(j<5? startY: startY+35)}em)`)
                 }
-                
+
                 //set text
-                d3.select("#fact-description").text(data[i].result+" "+data[i].question).call(wrap, 380);
-                console.log(data[i].result+" "+data[i].question);
+                d3.select("#fact-description").text(data[i].result + " " + data[i].question).call(wrap, 380);
+                console.log(data[i].result + " " + data[i].question);
             }
         }
     })
 }
 
-function showVS(name){
-    
+function showVS(name) {
+
 }
 
 function readJson(filePath, callBack) {

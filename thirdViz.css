@@ -1,0 +1,19 @@
+#svg-SOLID-icon {
+    transform: scale(0.5) translate(10em, 20em);
+}
+
+#group-SOLID {
+    transform: translate(36%, 15em);
+}
+
+.line-SOLID {
+    stroke-dasharray: 5, 5;
+    stroke: white;
+    stroke-width: 3;
+}
+
+#circle-SOLID {
+    fill-opacity: 0;
+    stroke-width: 0.7em;
+    stroke: white;
+}
