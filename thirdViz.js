@@ -8,8 +8,6 @@ let svgSolid, solid_group;
 window.addEventListener("load", function() {
     svgSolid = d3.select("div.third_viz")
         .append("svg")
-        //.attr("preserveAspectRatio", "xMidYMid meet")
-        //.attr("viewBox", "0 0 1450 900");
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("viewBox", `0 0 ${width} ${height}`);
 
@@ -24,13 +22,19 @@ function createGraph() {
     solid_group.append("image").attr("id", "svg-SOLID-icon")
         .attr("xlink:href", base_path_image + "solid-logo" + ".svg");
 
+
     /*
     solid_group.append("circle").attr("id", "circle-SOLID")
-        .attr("cx", 170).attr("cy", 240).attr("r", 230);
+        .attr("cx", 170).attr("cy", 240).attr("r", 280);
     */
 
     // Lines
-    const groupLines = solid_group.append("g").attr("id", "group-lines");
+    createLines();
+    createIcons();
+}
+
+function createLines() {
+    const groupLines = solid_group.append("g").attr("id", "group-SOLID-lines");
     groupLines.append("line").attr("class", "line-SOLID")
         .attr("x1", 165)
         .attr("x2", 165)
@@ -65,4 +69,14 @@ function createGraph() {
         .attr("x2", -40)
         .attr("y1", 205)
         .attr("y2", 130);
+}
+
+function createIcons() {
+    const groupIcons = solid_group.append("g").attr("id", "group-SOLID-data");
+
+    groupIcons.append("image").attr("id", "svg-SOLID-privacy-icon")
+        .attr("xlink:href", base_path_image + "privacy" + ".svg");
+
+    groupIcons.append("image").attr("id", "svg-SOLID-profile-icon")
+        .attr("xlink:href", base_path_image + "profile" + ".svg");
 }

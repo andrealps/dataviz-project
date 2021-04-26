@@ -17,3 +17,11 @@
     stroke-width: 0.7em;
     stroke: white;
 }
+
+#svg-SOLID-privacy-icon {
+    transform: scale(0.18) translate(47em, -35em);
+}
+
+#svg-SOLID-profile-icon {
+    transform: scale(0.15) translate(158em, 35em);
+}
