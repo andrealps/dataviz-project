@@ -467,12 +467,12 @@ function createVS(){
           updateVS(d3.timeFormat('%Y')(val));
         });
 
-      var gTime = viz
-        .append('svg')
-        .attr('width', 300)
-        .attr('height', 100)
+      var gTime = computer
         .append('g')
-        .attr('transform', 'translate(30,30)');
+//        .attr('width', 300)
+//        .attr('height', 100)
+//        .append('g')
+        .attr('transform', 'translate(100,100)');
     
       gTime.call(sliderTime);
 }
