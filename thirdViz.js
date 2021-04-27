@@ -35,7 +35,7 @@ function createGraph() {
 }
 
 function createLines() {
-    const groupLines = solid_group.append("g").attr("id", "group-SOLID-lines");
+    let groupLines = solid_group.append("g").attr("id", "group-SOLID-lines");
     groupLines.append("line").attr("class", "line-SOLID")
         .attr("x1", 165)
         .attr("x2", 165)
@@ -73,11 +73,15 @@ function createLines() {
 }
 
 function createIcons() {
-    const groupIcons = solid_group.append("g").attr("id", "group-SOLID-data");
+    let groupIcons = solid_group.append("g").attr("id", "group-SOLID-data");
+    let images = [{ name: "privacy", type: "svg" },
+        { name: "profile", type: "svg" }, { name: "database-storage", type: "svg" },
+        { name: "inrupt", type: "png" }, { name: "empathy-imagotype-white", type: "png" },
+        { name: "tim-berners-lee", type: "png" }
+    ]
 
-    groupIcons.append("image").attr("id", "svg-SOLID-privacy-icon")
-        .attr("xlink:href", base_path_image + "privacy" + ".svg");
-
-    groupIcons.append("image").attr("id", "svg-SOLID-profile-icon")
-        .attr("xlink:href", base_path_image + "profile" + ".svg");
+    images.forEach(image => {
+        groupIcons.append("image").attr("id", `svg-SOLID-${image.name}-icon`)
+            .attr("xlink:href", base_path_image + `${image.name}.${image.type}`);
+    })
 }

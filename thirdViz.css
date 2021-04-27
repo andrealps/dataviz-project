@@ -35,3 +35,19 @@
 #svg-SOLID-profile-icon {
     transform: scale(0.15) translate(158em, 35em);
 }
+
+#svg-SOLID-database-storage-icon {
+    transform: scale(0.15) translate(162em, 135em);
+}
+
+#svg-SOLID-inrupt-icon {
+    transform: scale(0.15) translate(35em, 185em);
+}
+
+#svg-SOLID-empathy-imagotype-white-icon {
+    transform: scale(0.55) translate(-19em, 35em);
+}
+
+#svg-SOLID-tim-berners-lee-icon {
+    transform: scale(0.4) translate(-20em, 10em);
+}
