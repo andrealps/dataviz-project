@@ -2,12 +2,21 @@
 // VARIABLES ***********************************************
 var width2 = 1400;
 var height2 = 900;
+
 var svg;
 var groupNodes;
 var computer;
 var viz;
-var groupFact;
 
+var groupFact;
+var arcGeneratorNYT;
+var arcGeneratorTC;
+var nyt_data;
+var tc_data;
+var currentTopic;
+var sliderTime;
+
+var vsScale= d3.scaleLinear().domain([1e-6,120]).range([0,120]);
 
 var t = d3.transition()
     .duration(2000)
@@ -127,8 +136,8 @@ window.onload = function() {
         createViz();
 
         // Testing, delete after
-        groupNodes.selectAll("*").transition(t).style("opacity", 0)
-        viz.selectAll("*").transition(t).style("opacity", 1);
+        groupNodes.selectAll("*").transition(t).style("opacity", 1)
+        viz.selectAll("*").transition(t).style("opacity", 0);
 
     });
 }
@@ -399,45 +408,73 @@ function createVS(){
         .attr("y", 210)
         .style("opacity", 1);
     
-    const arcGenerator = d3.arc()
-          .outerRadius(120)
+    console.log(vsScale(120))
+    
+    arcGeneratorNYT = d3.arc()//.attr("id", "nyt-arc")
+          .outerRadius(vsScale(120))
           .innerRadius(0)
           .startAngle(-Math.PI / 2)
           .endAngle(Math.PI / 2);
     
-    const arc = viz.append("path")
+    viz.append("path").attr("id", "nyt-circle")
           .attr("transform", "translate(400,350)")
-          .attr("d", arcGenerator())
+          .attr("d", arcGeneratorNYT())
           .style("fill", "#FDCB5B");
     
     viz.append("text").attr("id", "nyt-number")
         .text("12")
         .attr("x", 395)
-        .attr("y", 330)
+        .attr("y", 345)
         .attr("font-size", 20)
         .style("fill", "white")
         .style("text-align", "center") 
         .style("opacity", 1);
     
-    const arcGenerator2 = d3.arc()
-          .outerRadius(90)
+    arcGeneratorTC = d3.arc()//.attr("id", "tc-arc")
+          .outerRadius(vsScale(90))
           .innerRadius(0)
           .startAngle(Math.PI/2)
           .endAngle(-Math.PI/2);
     
-    const arc2 = viz.append("path")
+    viz.append("path").attr("id", "tc-circle")
           .attr("transform", "translate(400,350),rotate(180 0 0) ")
-          .attr("d", arcGenerator2())
+          .attr("d", arcGeneratorTC())
           .style("fill", "#80C0A1");
     
     viz.append("text").attr("id", "tc-number")
         .text("9")
         .attr("x", 400)
-        .attr("y", 380)
+        .attr("y", 365)
         .attr("font-size", 20)
         .style("fill", "white")
         .style("text-align", "center")
         .style("opacity", 1);
+    
+    var dataTime = d3.range(0, 7).map(function(d) {
+        return new Date(2010 + d, 10, 3);
+      });
+
+    sliderTime = d3
+        .sliderBottom()
+        .min(d3.min(dataTime))
+        .max(d3.max(dataTime))
+        .step(1000 * 60 * 60 * 24 * 365)
+        .width(200)
+        .tickFormat(d3.timeFormat('%Y'))
+        .tickValues(dataTime)
+        .default(new Date(2010, 10, 3))
+        .on('onchange', val => {
+          updateVS(d3.timeFormat('%Y')(val));
+        });
+
+      var gTime = viz
+        .append('svg')
+        .attr('width', 300)
+        .attr('height', 100)
+        .append('g')
+        .attr('transform', 'translate(30,30)');
+    
+      gTime.call(sliderTime);
 }
 
 function showViz(name) {
@@ -464,6 +501,7 @@ function goBack() {
     viz.selectAll("*").transition(t).style("opacity", 0);
     groupNodes.selectAll("*").transition(t).style("opacity", 1);
     groupNodes.selectAll("*").transition(t).style("display", "block")
+    sliderTime.value(new Date(2010, 10, 3))
 }
 
 function showPeekYear(name) {
@@ -538,7 +576,66 @@ function showFunFact(name){
 }
 
 function showVS(name){
+    currentTopic=name;
+    d3.json("./DATA/"+name+".json", function (error, dataNYT) {
+        d3.json("./DATA/TechCrunchDB_"+name+".json", function (error, dataTC) {
+            for (var i=0 ; i<dataNYT.length ; i++) {
+                if(2010==dataNYT[i].year){
+                    nyt_data=dataNYT[i].freq
+                    for (var j=0 ; j<dataTC.length ; j++) {
+                        if(2010==dataTC[j].year){
+                            tc_data=dataTC[j].freq
+                        }
+                    }
+                }
+            }
+            
+            d3.select("#nyt-number").text(nyt_data)
+            d3.select("#tc-number").text(tc_data)
+            vsScale.domain([1e-6, Math.max(nyt_data, tc_data)])
+            arcGeneratorNYT.outerRadius(vsScale(nyt_data));
+            console.log(nyt_data)
+            console.log("NYT: "+vsScale(nyt_data))
+            console.log("TC: "+vsScale(tc_data))
+            arcGeneratorTC.outerRadius(vsScale(tc_data));
+            
+            d3.select("#nyt-circle").attr("d", arcGeneratorNYT());
+            d3.select("#tc-circle").attr("d", arcGeneratorTC());
+        })
+    })
     
+}
+
+function updateVS(year){
+    console.log(year);
+    d3.json("./DATA/"+currentTopic+".json", function (error, dataNYT) {
+        d3.json("./DATA/TechCrunchDB_"+currentTopic+".json", function (error, dataTC) {
+            for (var i=0 ; i<dataNYT.length ; i++) {
+                if(year==dataNYT[i].year){
+                    nyt_data=dataNYT[i].freq
+                    for (var j=0 ; j<dataTC.length ; j++) {
+                        if(year==dataTC[j].year){
+                            tc_data=dataTC[j].freq
+                        }
+                    }
+                }
+            }
+        
+            d3.select("#nyt-number").text(nyt_data)
+            d3.select("#tc-number").text(tc_data)
+            vsScale.domain([1e-6, Math.max(nyt_data, tc_data)])
+            arcGeneratorNYT.outerRadius(vsScale(nyt_data));
+            console.log(nyt_data)
+            console.log("NYT: "+vsScale(nyt_data))
+            console.log("TC: "+vsScale(tc_data))
+            arcGeneratorTC.outerRadius(vsScale(tc_data));
+            
+            d3.select("#nyt-circle").attr("d", arcGeneratorNYT());
+            d3.select("#tc-circle").attr("d", arcGeneratorTC());
+
+
+        })
+    })
 }
 
 function readJson(filePath, callBack) {
