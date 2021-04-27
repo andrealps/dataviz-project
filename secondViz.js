@@ -15,6 +15,7 @@ var nyt_data;
 var tc_data;
 var currentTopic;
 var sliderTime;
+var gTime;
 
 var vsScale= d3.scaleLinear().domain([1e-6,120]).range([0,120]);
 
@@ -467,12 +468,13 @@ function createVS(){
           updateVS(d3.timeFormat('%Y')(val));
         });
 
-      var gTime = viz
-        .append('svg')
-        .attr('width', 300)
-        .attr('height', 100)
+      gTime = computer
         .append('g')
-        .attr('transform', 'translate(30,30)');
+//        .attr('width', 300)
+//        .attr('height', 100)
+//        .append('g')
+        .attr('transform', 'translate(520,240)')
+        .style("opacity", 0);
     
       gTime.call(sliderTime);
 }
@@ -502,6 +504,7 @@ function goBack() {
     groupNodes.selectAll("*").transition(t).style("opacity", 1);
     groupNodes.selectAll("*").transition(t).style("display", "block")
     sliderTime.value(new Date(2010, 10, 3))
+    gTime.style("opacity",0)
 }
 
 function showPeekYear(name) {
@@ -603,6 +606,8 @@ function showVS(name){
             d3.select("#tc-circle").attr("d", arcGeneratorTC());
         })
     })
+    
+    gTime.style("opacity", 1);
     
 }
 
