@@ -470,11 +470,11 @@ function createVS(){
       });
 
     sliderTime = d3
-        .sliderBottom()
+        .sliderRight()
         .min(d3.min(dataTime))
         .max(d3.max(dataTime))
         .step(1000 * 60 * 60 * 24 * 365)
-        .width(200)
+        .height(200)
         .tickFormat(d3.timeFormat('%Y'))
         .tickValues(dataTime)
         .default(new Date(2010, 10, 3))
@@ -485,7 +485,8 @@ function createVS(){
       gTime = vs
         .append('g')
         .attr('transform', 'translate(520,400)')
-        .style("opacity", 0);
+        .style("opacity", 0)
+        .attr("transform", "translate(600,230)");
     
       gTime.call(sliderTime);
     
