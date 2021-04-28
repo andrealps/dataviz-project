@@ -120,6 +120,18 @@
     text-align: center;
 }
 
+.axisWhite line{
+  stroke: white;
+}
+
+.axisWhite path{
+  stroke: white;
+}
+
+.axisWhite text{
+  fill: white;
+}
+
 
 /* https://www.flaticon.com/free-icon/man_3439472?term=man&page=1&position=21&page=1&position=21&related_id=3439472&origin=tag */
 
