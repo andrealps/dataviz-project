@@ -1,0 +1,59 @@
+#SOLID_tooltip_wrapper {
+    opacity: 0;
+    position: absolute;
+}
+
+#SOLID_tooltip {
+    background: #ddd;
+    color: #333;
+    display: inline-block;
+    font-size: 1vw;
+    font-family: Montserrat, sans-serif, Tahoma;
+    line-height: 1.7em;
+    margin-bottom: 1em;
+    padding: 0 1em;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    min-width: 7em;
+    border-radius: .4em;
+    max-width: 20em;
+}
+
+#SOLID_tooltip[class="tooltip-left"]:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 1vw solid #ddd;
+    border-top: 1vw solid transparent;
+    border-bottom: 1vw solid transparent;
+    right: -0.8vw;
+    top: 20%;
+}
+
+#SOLID_tooltip[class="tooltip-right"]:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 1vw solid transparent;
+    border-right: 1vw solid #ddd;
+    border-top: 1vw solid transparent;
+    border-bottom: 1vw solid transparent;
+    left: -1.8vw;
+    top: 20%;
+}
+
+#SOLID_title img {
+    width: 3vw;
+    float: left;
+}
+
+#SOLID_title p {
+    font-family: Montserrat, sans-serif, Tahoma;
+    font-size: 1.5vw;
+    color: white;
+    margin-left: 4vw;
+    padding: 0.3em;
+}

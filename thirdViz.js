@@ -4,6 +4,23 @@ const width = 1450,
     height = 900;
 let svgSolid, solid_group;
 
+let imagesAttributes = [{ name: "privacy", type: "svg", pos: "tooltip-right" },
+    { name: "profile", type: "svg", pos: "tooltip-right" },
+    { name: "database-storage", type: "svg", pos: "tooltip-right" },
+    { name: "inrupt", type: "png", pos: "tooltip-left" },
+    { name: "empathy-imagotype-white", type: "png", pos: "tooltip-left" },
+    { name: "tim-berners-lee", type: "png", pos: "tooltip-left" }
+];
+
+let imagesText = {
+    "privacy": "Users control their data and decide to whom they share it",
+    "profile": "Apps can access to user information from any Pod, only with user permission",
+    "database-storage": "Pods store user data in an interoperable format and provide users with control permissions",
+    "inrupt": "There are some Pod Providers where you can create your Pod, such as Inrupt.  You could also self-host your own Pod running a Pod Server",
+    "empathy-imagotype-white": "Empathy believes in this specification, as the company is developing some projects like <a href='https://ohmypod.netlify.app'>OhMyPod</a> or <a href='https://kala.empathy.co/'>Kala.</a>",
+    "tim-berners-lee": "SOLID is a project led by Tim Berners-Lee, the World Wide Web inventor.  It realizes his original vision of the Web."
+}
+
 // SHOW THIRD VIZ ***********************************************
 window.addEventListener("load", function() {
     svgSolid = d3.select("div.third_viz")
@@ -22,12 +39,6 @@ function createGraph() {
     // SOLID logo
     solid_group.append("image").attr("id", "svg-SOLID-icon")
         .attr("xlink:href", base_path_image + "solid-logo" + ".svg");
-
-
-    /*
-    solid_group.append("circle").attr("id", "circle-SOLID")
-        .attr("cx", 170).attr("cy", 240).attr("r", 280);
-    */
 
     // Lines
     createLines();
@@ -74,14 +85,28 @@ function createLines() {
 
 function createIcons() {
     let groupIcons = solid_group.append("g").attr("id", "group-SOLID-data");
-    let images = [{ name: "privacy", type: "svg" },
-        { name: "profile", type: "svg" }, { name: "database-storage", type: "svg" },
-        { name: "inrupt", type: "png" }, { name: "empathy-imagotype-white", type: "png" },
-        { name: "tim-berners-lee", type: "png" }
-    ]
 
-    images.forEach(image => {
+    imagesAttributes.forEach(image => {
         groupIcons.append("image").attr("id", `svg-SOLID-${image.name}-icon`)
-            .attr("xlink:href", base_path_image + `${image.name}.${image.type}`);
+            .attr("xlink:href", base_path_image + `${image.name}.${image.type}`)
+            .on("mouseover", () => {
+                showTooltip(d3.event.pageX, d3.event.pageY, image.pos, imagesText[image.name], image.name);
+            });
     })
+}
+
+function showTooltip(x, y, pos, text, name) {
+    let tooltip = d3.select("#SOLID_tooltip_wrapper");
+
+    tooltip.transition()
+        .duration(500)
+        .style("opacity", "0");
+    tooltip.transition()
+        .duration(200)
+        .style("opacity", "1");
+
+    tooltip.select("#SOLID_tooltip").attr("class", pos).html(text);
+    tooltip.style("left", (x) + "px")
+        .style("top", (y) + "px");
+
 }
