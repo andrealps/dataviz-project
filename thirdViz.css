@@ -13,7 +13,7 @@
 }
 
 #group-SOLID {
-    transform: translate(38%, 8em);
+    transform: translate(30%, 8em);
 }
 
 .line-SOLID {
@@ -50,4 +50,71 @@
 
 #svg-SOLID-tim-berners-lee-icon {
     transform: scale(0.4) translate(-20em, 10em);
+}
+
+#SOLID-content {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    font-family: 'Montserrat';
+}
+
+#SOLID-content svg {
+    width: 60%;
+    float: right;
+}
+
+#help-SOLID {
+    width: 20em;
+    height: fit-content;
+    padding: 1em;
+    background-color: #2b4a57af;
+    margin-top: 2em;
+}
+
+#help-SOLID-extra a:link,
+#help-SOLID-extra a:visited {
+    color: #d3d3d3;
+    font-weight: lighter;
+}
+
+
+/* mouse over link */
+
+#help-SOLID-extra a:hover {
+    color: #cd6be6;
+}
+
+
+/* selected link */
+
+#help-SOLID-extra a:active {
+    color: #bc5cd4;
+}
+
+#help-SOLID {
+    color: #A6B0B5;
+    border-radius: .5em;
+    text-align: center;
+}
+
+#help-SOLID-body {
+    font-family: Lora, serif;
+    color: #A6B0B5;
+    font-size: calc(0.6vw + 0.5em);
+    text-align: justify;
+}
+
+#help-SOLID-title {
+    font-variant: small-caps;
+    color: #E2E6E7;
+    font-weight: bold;
+    font-size: calc(0.8vw + 0.8em);
+    background-color: #a259dd1e;
+    padding: 0.5em;
+}
+
+#help-SOLID-extra {
+    color: #a3a3a3;
+    font-size: calc(0.4vw + 0.4em);
 }

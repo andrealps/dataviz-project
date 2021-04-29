@@ -4,7 +4,7 @@
 }
 
 #SOLID_tooltip {
-    background: #ddd;
+    background: rgba(221, 221, 221, 0.897);
     color: #333;
     display: inline-block;
     font-size: 1vw;
@@ -20,40 +20,29 @@
     max-width: 20em;
 }
 
-#SOLID_tooltip[class="tooltip-left"]:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 1vw solid #ddd;
-    border-top: 1vw solid transparent;
-    border-bottom: 1vw solid transparent;
-    right: -0.8vw;
-    top: 20%;
+
+/* unvisited link */
+
+a:link,
+a:visited {
+    color: #7C4DFF;
+    font-weight: bold;
 }
 
-#SOLID_tooltip[class="tooltip-right"]:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 1vw solid transparent;
-    border-right: 1vw solid #ddd;
-    border-top: 1vw solid transparent;
-    border-bottom: 1vw solid transparent;
-    left: -1.8vw;
-    top: 20%;
+
+/* mouse over link */
+
+a:hover {
+    color: #cd6be6;
 }
 
-#SOLID_title img {
-    width: 3vw;
-    float: left;
+
+/* selected link */
+
+a:active {
+    color: #bc5cd4;
 }
 
-#SOLID_title p {
-    font-family: Montserrat, sans-serif, Tahoma;
-    font-size: 1.5vw;
-    color: white;
-    margin-left: 4vw;
-    padding: 0.3em;
+.highlight {
+    font-weight: bold;
 }
