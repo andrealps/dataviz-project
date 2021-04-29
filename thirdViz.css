@@ -118,3 +118,8 @@
     color: #a3a3a3;
     font-size: calc(0.4vw + 0.4em);
 }
+
+#help-img {
+    width: calc(1vw + 0.4em);
+    margin-left: 1vw;
+}

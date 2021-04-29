@@ -19,7 +19,7 @@ let imagesText = {
     "database-storage": "Pods <span class='highlight'>store</span> user data in an <span class='highlight'>interoperable format</span> and provide users with control permissions",
     "inrupt": "There are some <span class='highlight'>Pod Providers</span> where you can create your Pod, such as <a href='https://inrupt.com/solid/' target='blank'>Inrupt</a>.  You could also self-host your own Pod running a Pod Server",
     "empathy-imagotype-white": "<span class='highlight'>Empathy</span> believes in this specification, as the company is developing some projects like <a href='https://ohmypod.netlify.app' target='blank'>OhMyPod</a> or <a target='blank' href='https://kala.empathy.co/'>Kala.</a>",
-    "tim-berners-lee": "SOLID is a project led by <span class='highlight'>Tim Berners-Lee</span>, the World Wide Web inventor.  It realizes his <span class='highlight'>original vision</span> of the Web."
+    "tim-berners-lee": "Solid is a project led by <span class='highlight'>Tim Berners-Lee</span>, the World Wide Web inventor.  It realizes his <span class='highlight'>original vision</span> of the Web."
 }
 
 // SHOW THIRD VIZ ***********************************************
