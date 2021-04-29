@@ -21,11 +21,11 @@ var sliderTime;
 var gTime;
 
 //colors for different button states 
-var defaultColor= "#7777BB"
-var hoverColor= "#0086B2"
-var pressedColor= "#000077"
+var defaultColor = "#7777BB"
+var hoverColor = "#0086B2"
+var pressedColor = "#000077"
 
-var vsScale= d3.scaleLinear().domain([1e-6,120]).range([0,120]);
+var vsScale = d3.scaleLinear().domain([1e-6, 120]).range([0, 120]);
 
 var t = d3.transition()
     .duration(2000)
@@ -118,7 +118,7 @@ var dataWords = {}; // to store the year with more articles
 
 // SHOW SECOND VIZ ***********************************************
 
-window.onload = function() {
+window.addEventListener("load", function() {
     svg = d3.select("div.second_viz")
         .append("svg")
         .attr("preserveAspectRatio", "xMidYMid meet")
@@ -155,7 +155,7 @@ window.onload = function() {
         viz.selectAll("*").transition(t).style("opacity", 0);
 
     });
-}
+}, false);
 
 // FUNCTIONS ***********************************************
 
@@ -308,7 +308,7 @@ function createViz() {
 }
 
 function createFact() {
-    
+
 
     // Fun fact title
     groupFact.append("text").attr("id", "fact-info-title")
@@ -350,14 +350,14 @@ function createTweet() {
 
     // TechCrunch logo (circle)
     let groupLogo = groupTwitter.append("g").attr("id", "group-logo-TechCrunch");
-//    groupLogo.append("circle").attr("id", "cir_TechCrunch")
-//        .attr("cx", 300)
-//        .attr("cy", 500)
-//        .attr("r", 40)
-//        .style('opacity', 0);
-//    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
-//        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
-//        .style('opacity', 0);
+    //    groupLogo.append("circle").attr("id", "cir_TechCrunch")
+    //        .attr("cx", 300)
+    //        .attr("cy", 500)
+    //        .attr("r", 40)
+    //        .style('opacity', 0);
+    //    groupLogo.append("image").attr("id", "svg-TechCrunch-icon")
+    //        .attr("xlink:href", base_path_image + "techcrunch-logo" + ".svg")
+    //        .style('opacity', 0);
 
     // Name of the account: TechCrunch
     groupTwitter.append("text").attr("id", "twitter-account-name")
@@ -416,46 +416,46 @@ function createPeekYear() {
 
 }
 
-function createVS(){
+function createVS() {
     viz.append("text").attr("id", "vs-title")
         .text("New York Times VS TedCrunch :")
         .attr("x", 250)
         .attr("y", 210)
         .style("opacity", 1);
-    
+
     console.log(vsScale(120))
-    
-    arcGeneratorNYT = d3.arc()//.attr("id", "nyt-arc")
-          .outerRadius(vsScale(120))
-          .innerRadius(0)
-          .startAngle(-Math.PI / 2)
-          .endAngle(Math.PI / 2);
-    
+
+    arcGeneratorNYT = d3.arc() //.attr("id", "nyt-arc")
+        .outerRadius(vsScale(120))
+        .innerRadius(0)
+        .startAngle(-Math.PI / 2)
+        .endAngle(Math.PI / 2);
+
     vs.append("path").attr("id", "nyt-circle")
-          .attr("transform", "translate(400,330)")
-          .attr("d", arcGeneratorNYT())
-          .style("fill", "#FDCB5B");
-    
+        .attr("transform", "translate(400,330)")
+        .attr("d", arcGeneratorNYT())
+        .style("fill", "#FDCB5B");
+
     vs.append("text").attr("id", "nyt-number")
         .text("12")
         .attr("x", 395)
         .attr("y", 325)
         .attr("font-size", 20)
         .style("fill", "white")
-        .style("text-align", "center") 
+        .style("text-align", "center")
         .style("opacity", 1);
-    
-    arcGeneratorTC = d3.arc()//.attr("id", "tc-arc")
-          .outerRadius(vsScale(90))
-          .innerRadius(0)
-          .startAngle(Math.PI/2)
-          .endAngle(-Math.PI/2);
-    
+
+    arcGeneratorTC = d3.arc() //.attr("id", "tc-arc")
+        .outerRadius(vsScale(90))
+        .innerRadius(0)
+        .startAngle(Math.PI / 2)
+        .endAngle(-Math.PI / 2);
+
     vs.append("path").attr("id", "tc-circle")
-          .attr("transform", "translate(400,330),rotate(180 0 0) ")
-          .attr("d", arcGeneratorTC())
-          .style("fill", "#80C0A1");
-    
+        .attr("transform", "translate(400,330),rotate(180 0 0) ")
+        .attr("d", arcGeneratorTC())
+        .style("fill", "#80C0A1");
+
     vs.append("text").attr("id", "tc-number")
         .text("9")
         .attr("x", 400)
@@ -464,10 +464,10 @@ function createVS(){
         .style("fill", "white")
         .style("text-align", "center")
         .style("opacity", 1);
-    
+
     var dataTime = d3.range(0, 7).map(function(d) {
         return new Date(2010 + d, 10, 3);
-      });
+    });
 
     sliderTime = d3
         .sliderRight()
@@ -479,211 +479,211 @@ function createVS(){
         .tickValues(dataTime)
         .default(new Date(2010, 10, 3))
         .on('onchange', val => {
-          updateVS(d3.timeFormat('%Y')(val));
+            updateVS(d3.timeFormat('%Y')(val));
         });
 
-      gTime = vs
+    gTime = vs
         .append('g')
         .attr('transform', 'translate(520,400)')
         .style("opacity", 0)
         .attr("transform", "translate(600,230)");
-    
-      gTime.call(sliderTime);
-    
-    
+
+    gTime.call(sliderTime);
+
+
     //here go the radio buttons
-    
-    
+
+
     //container for all buttons
-    var allButtons= viz.append("g")
-                        .attr("id","allButtons") 
+    var allButtons = viz.append("g")
+        .attr("id", "allButtons")
 
     //fontawesome button labels
-    var labels= ['\uf200','NYT','TC'];
-    
+    var labels = ['\uf200', 'NYT', 'TC'];
+
     var functions = [clickedVS(), clickedNYT(), clickedTC()]
-    var index=0;
+    var index = 0;
     //groups for each button (which will hold a rect and text)
-    var buttonGroups= allButtons.selectAll("g.button")
-                            .data(labels)
-                            .enter()
-                            .append("g")
-                            .attr("class","button")
-                            .attr("id", function(i){
-                                index++
-                                return "button"+index
-                            })
-                            .style("cursor","pointer")
-                            .on("click",function(d,i) {
-                                updateButtonColors(d3.select(this), d3.select(this.parentNode), i)
-                            })
-                            .on("mouseover", function() {
-                                if (d3.select(this).select("rect").attr("fill") != pressedColor) {
-                                    d3.select(this)
-                                        .select("rect")
-                                        .attr("fill",hoverColor);
-                                }
-                            })
-                            .on("mouseout", function() {
-                                if (d3.select(this).select("rect").attr("fill") != pressedColor) {
-                                    d3.select(this)
-                                        .select("rect")
-                                        .attr("fill",defaultColor);
-                                }
-                            })
+    var buttonGroups = allButtons.selectAll("g.button")
+        .data(labels)
+        .enter()
+        .append("g")
+        .attr("class", "button")
+        .attr("id", function(i) {
+            index++
+            return "button" + index
+        })
+        .style("cursor", "pointer")
+        .on("click", function(d, i) {
+            updateButtonColors(d3.select(this), d3.select(this.parentNode), i)
+        })
+        .on("mouseover", function() {
+            if (d3.select(this).select("rect").attr("fill") != pressedColor) {
+                d3.select(this)
+                    .select("rect")
+                    .attr("fill", hoverColor);
+            }
+        })
+        .on("mouseout", function() {
+            if (d3.select(this).select("rect").attr("fill") != pressedColor) {
+                d3.select(this)
+                    .select("rect")
+                    .attr("fill", defaultColor);
+            }
+        })
 
-        var bWidth= 40; //button width
-        var bHeight= 25; //button height
-        var bSpace= 10; //space between buttons
-        var x0= 600; //x offset
-        var y0= 190; //y offset
+    var bWidth = 40; //button width
+    var bHeight = 25; //button height
+    var bSpace = 10; //space between buttons
+    var x0 = 600; //x offset
+    var y0 = 190; //y offset
 
-        //adding a rect to each toggle button group
-        //rx and ry give the rect rounded corner
-        buttonGroups.append("rect")
-                    .attr("class","buttonRect")
-                    .attr("width",bWidth)
-                    .attr("height",bHeight)
-                    .attr("x",function(d,i) {return x0+(bWidth+bSpace)*i;})
-                    .attr("y",y0)
-                    .attr("rx",5) //rx and ry give the buttons rounded corners
-                    .attr("ry",5)
-                    .attr("fill",defaultColor)
+    //adding a rect to each toggle button group
+    //rx and ry give the rect rounded corner
+    buttonGroups.append("rect")
+        .attr("class", "buttonRect")
+        .attr("width", bWidth)
+        .attr("height", bHeight)
+        .attr("x", function(d, i) { return x0 + (bWidth + bSpace) * i; })
+        .attr("y", y0)
+        .attr("rx", 5) //rx and ry give the buttons rounded corners
+        .attr("ry", 5)
+        .attr("fill", defaultColor)
 
-        //adding text to each toggle button group, centered 
-        //within the toggle button rect
-        buttonGroups.append("text")
-                    .attr("class","buttonText")
-                    .attr("font-family","FontAwesome")
-                    .attr("x",function(d,i) {
-                        return x0 + (bWidth+bSpace)*i + bWidth/2;
-                    })
-                    .attr("y",y0+bHeight/2)
-                    .attr("text-anchor","middle")
-                    .attr("dominant-baseline","central")
-                    .attr("fill","white")
-                    .text(function(d) {return d;})
-    
-    
-        
+    //adding text to each toggle button group, centered 
+    //within the toggle button rect
+    buttonGroups.append("text")
+        .attr("class", "buttonText")
+        .attr("font-family", "FontAwesome")
+        .attr("x", function(d, i) {
+            return x0 + (bWidth + bSpace) * i + bWidth / 2;
+        })
+        .attr("y", y0 + bHeight / 2)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "central")
+        .attr("fill", "white")
+        .text(function(d) { return d; })
+
+
+
 }
 
 function updateButtonColors(button, parent, index) {
-        parent.selectAll("rect")
-                .attr("fill",defaultColor)
+    parent.selectAll("rect")
+        .attr("fill", defaultColor)
 
-        button.select("rect")
-                .attr("fill",pressedColor)
-    
-    if(index==0){
+    button.select("rect")
+        .attr("fill", pressedColor)
+
+    if (index == 0) {
         clickedVS()
-    }else if(index==1){
+    } else if (index == 1) {
         clickedNYT()
     } else {
         clickedTC()
     }
 }
 
-function createNYTGraph(name){
+function createNYTGraph(name) {
     nyt.selectAll("*").remove()
-    
-    d3.json("./DATA/"+name+".json", function (error, dataNYT) {
-        
+
+    d3.json("./DATA/" + name + ".json", function(error, dataNYT) {
+
         dataNYT.forEach(function(d) {
-             d.year = d3.timeParse("%Y")(d.year)
+            d.year = d3.timeParse("%Y")(d.year)
         });
-        
-        var x = d3.scaleTime()
-          .domain(d3.extent(dataNYT, function(d) { return d.year; }))
-          .range([ 0, 400 ]);
-        nyt.append("g")
-          .attr("transform", "translate(300," + 420 + ")")
-        .style("opacity", 0)
-        .attr("class", "axisWhite")
-          .call(d3.axisBottom(x));
-        
-        // Add Y axis
-        var y = d3.scaleLinear()
-          .domain([0, d3.max(dataNYT, function(d) { return +d.freq; })])
-          .range([ 200, 0 ]);
-        nyt.append("g")
-        .attr("transform", "translate(300," + 220 + ")")
-        .style("opacity", 0)
-        .attr("class", "axisWhite")
-          .call(d3.axisLeft(y));
-        
-        nyt.append("path")
-          .datum(dataNYT)
-          .attr("fill", "none")
-          .attr("stroke", "#FDCB5B")
-          .attr("stroke-width", 2)
-          .attr("transform", "translate(300," + 220 + ")")
-        .style("opacity", 0)
-          .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.freq) })
-            )
-    })
-    
-    nyt.selectAll("*").style("opacity",0)
-}
 
-function createTCGraph(name){
-    tc.selectAll("*").remove()
-    
-    d3.json("./DATA/TechCrunchDB_"+name+".json", function (error, dataTC) {
-        dataTC.forEach(function(d) {
-             d.year = d3.timeParse("%Y")(d.year)
-        });
-        
         var x = d3.scaleTime()
-          .domain(d3.extent(dataTC, function(d) { return d.year; }))
-          .range([ 0, 400 ]);
-        tc.append("g")
-          .attr("transform", "translate(300," + 420 + ")")
-        .style("opacity", 0)
-        .attr("class", "axisWhite")
-          .call(d3.axisBottom(x));
-        
-        // Add Y axis
-        var y = d3.scaleLinear()
-          .domain([0, d3.max(dataTC, function(d) { return +d.freq; })])
-          .range([ 200, 0 ]);
-        tc.append("g")
-        .attr("transform", "translate(300," + 220 + ")")
-        .style("opacity", 0)
-        .attr("class", "axisWhite")
-          .call(d3.axisLeft(y));
-        
-        tc.append("path")
-          .datum(dataTC)
-          .attr("fill", "none")
-          .attr("stroke", "#80C0A1")
-          .attr("stroke-width", 2)
-          .attr("transform", "translate(300," + 220 + ")")
+            .domain(d3.extent(dataNYT, function(d) { return d.year; }))
+            .range([0, 400]);
+        nyt.append("g")
+            .attr("transform", "translate(300," + 420 + ")")
             .style("opacity", 0)
-          .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.freq) })
+            .attr("class", "axisWhite")
+            .call(d3.axisBottom(x));
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+            .domain([0, d3.max(dataNYT, function(d) { return +d.freq; })])
+            .range([200, 0]);
+        nyt.append("g")
+            .attr("transform", "translate(300," + 220 + ")")
+            .style("opacity", 0)
+            .attr("class", "axisWhite")
+            .call(d3.axisLeft(y));
+
+        nyt.append("path")
+            .datum(dataNYT)
+            .attr("fill", "none")
+            .attr("stroke", "#FDCB5B")
+            .attr("stroke-width", 2)
+            .attr("transform", "translate(300," + 220 + ")")
+            .style("opacity", 0)
+            .attr("d", d3.line()
+                .x(function(d) { return x(d.year) })
+                .y(function(d) { return y(d.freq) })
             )
     })
-    
-    
+
+    nyt.selectAll("*").style("opacity", 0)
 }
 
-function clickedVS(){
+function createTCGraph(name) {
+    tc.selectAll("*").remove()
+
+    d3.json("./DATA/TechCrunchDB_" + name + ".json", function(error, dataTC) {
+        dataTC.forEach(function(d) {
+            d.year = d3.timeParse("%Y")(d.year)
+        });
+
+        var x = d3.scaleTime()
+            .domain(d3.extent(dataTC, function(d) { return d.year; }))
+            .range([0, 400]);
+        tc.append("g")
+            .attr("transform", "translate(300," + 420 + ")")
+            .style("opacity", 0)
+            .attr("class", "axisWhite")
+            .call(d3.axisBottom(x));
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+            .domain([0, d3.max(dataTC, function(d) { return +d.freq; })])
+            .range([200, 0]);
+        tc.append("g")
+            .attr("transform", "translate(300," + 220 + ")")
+            .style("opacity", 0)
+            .attr("class", "axisWhite")
+            .call(d3.axisLeft(y));
+
+        tc.append("path")
+            .datum(dataTC)
+            .attr("fill", "none")
+            .attr("stroke", "#80C0A1")
+            .attr("stroke-width", 2)
+            .attr("transform", "translate(300," + 220 + ")")
+            .style("opacity", 0)
+            .attr("d", d3.line()
+                .x(function(d) { return x(d.year) })
+                .y(function(d) { return y(d.freq) })
+            )
+    })
+
+
+}
+
+function clickedVS() {
     vs.selectAll("*").transition(t).style("opacity", 1)
     nyt.selectAll("*").transition(t).style("opacity", 0)
     tc.selectAll("*").transition(t).style("opacity", 0)
 }
 
-function clickedNYT(){
+function clickedNYT() {
     vs.selectAll("*").transition(t).style("opacity", 0)
     nyt.selectAll("*").transition(t).style("opacity", 1)
     tc.selectAll("*").transition(t).style("opacity", 0)
 }
 
-function clickedTC(){
+function clickedTC() {
     vs.selectAll("*").transition(t).style("opacity", 0)
     nyt.selectAll("*").transition(t).style("opacity", 0)
     tc.selectAll("*").transition(t).style("opacity", 1)
@@ -693,11 +693,11 @@ function showViz(name) {
     groupNodes.selectAll("*").transition(t).style("opacity", 0)
     groupNodes.selectAll("*").transition(t).style("display", "none")
     console.log(name);
-    
+
     d3.select("#viz_title").transition(t).text(name + "'s viz")
     viz.selectAll("*").transition(t).style("opacity", 1);
     groupFact.selectAll("*").transition(t).style("opacity", 1);
-    
+
     // Show last tweet of TechCrunch with the word
     showTweet(name);
     // Show peek year
@@ -710,7 +710,7 @@ function showViz(name) {
     createNYTGraph(name);
     //tc
     createTCGraph(name);
-    
+
 }
 
 function goBack() {
@@ -719,11 +719,11 @@ function goBack() {
     groupNodes.selectAll("*").transition(t).style("opacity", 1);
     groupNodes.selectAll("*").transition(t).style("display", "block")
     sliderTime.value(new Date(2010, 10, 3))
-    gTime.style("opacity",0)
-    
-    d3.select("#button2").selectAll("rect").attr("fill",defaultColor)
-    d3.select("#button3").selectAll("rect").attr("fill",defaultColor)
-    d3.select("#button1").selectAll("rect").attr("fill",pressedColor)
+    gTime.style("opacity", 0)
+
+    d3.select("#button2").selectAll("rect").attr("fill", defaultColor)
+    d3.select("#button3").selectAll("rect").attr("fill", defaultColor)
+    d3.select("#button1").selectAll("rect").attr("fill", pressedColor)
 }
 
 function showPeekYear(name) {
@@ -763,13 +763,14 @@ function showTweet(name) {
     }
 }
 
-function showFunFact(name){
-    d3.json("./DATA/questions.json", function (error, data) {
-        for (var i=0 ; i<data.length ; i++) {
-            if(name==data[i].topic){
+function showFunFact(name) {
+    d3.json("./DATA/questions.json", function(error, data) {
+        for (var i = 0; i < data.length; i++) {
+            if (name == data[i].topic) {
                 //paint people
                 groupFact.selectAll("image").remove();
-                let startX = 295,startY = 80;
+                let startX = 295,
+                    startY = 80;
                 for (let i = 0; i < 10; i++) {
                     groupFact.append("image").attr("class", "fact-person")
                         .attr("id", `fact-person_${i}`)
@@ -788,41 +789,41 @@ function showFunFact(name){
                             translate(${startX + (j<5? 20*j: 20*(j-5))}em, 
                             ${(j<5? startY: startY+35)}em)`)
                 }
-                
+
                 //set text
-                d3.select("#fact-description").text(data[i].result+" "+data[i].question).call(wrap, 380);
-                console.log(data[i].result+" "+data[i].question);
+                d3.select("#fact-description").text(data[i].result + " " + data[i].question).call(wrap, 380);
+                console.log(data[i].result + " " + data[i].question);
             }
         }
     })
 }
 
-function showVS(name){
-    d3.select("#button2").selectAll("rect").attr("fill",defaultColor)
-    d3.select("#button3").selectAll("rect").attr("fill",defaultColor)
-    d3.select("#button1").selectAll("rect").attr("fill",pressedColor)
-    
-    currentTopic=name;
-    d3.json("./DATA/"+name+".json", function (error, dataNYT) {
-        d3.json("./DATA/TechCrunchDB_"+name+".json", function (error, dataTC) {
-            for (var i=0 ; i<dataNYT.length ; i++) {
-                if(2010==dataNYT[i].year){
-                    nyt_data=dataNYT[i].freq
-                    for (var j=0 ; j<dataTC.length ; j++) {
-                        if(2010==dataTC[j].year){
-                            tc_data=dataTC[j].freq
+function showVS(name) {
+    d3.select("#button2").selectAll("rect").attr("fill", defaultColor)
+    d3.select("#button3").selectAll("rect").attr("fill", defaultColor)
+    d3.select("#button1").selectAll("rect").attr("fill", pressedColor)
+
+    currentTopic = name;
+    d3.json("./DATA/" + name + ".json", function(error, dataNYT) {
+        d3.json("./DATA/TechCrunchDB_" + name + ".json", function(error, dataTC) {
+            for (var i = 0; i < dataNYT.length; i++) {
+                if (2010 == dataNYT[i].year) {
+                    nyt_data = dataNYT[i].freq
+                    for (var j = 0; j < dataTC.length; j++) {
+                        if (2010 == dataTC[j].year) {
+                            tc_data = dataTC[j].freq
                         }
                     }
                 }
             }
-            
-            if(nyt_data==0&&tc_data==0){
+
+            if (nyt_data == 0 && tc_data == 0) {
                 d3.select("#nyt-number").text("NO DATA")
                 d3.select("#tc-number").text("")
                 arcGeneratorNYT.outerRadius(0);
                 console.log(nyt_data)
-                console.log("NYT: "+vsScale(nyt_data))
-                console.log("TC: "+vsScale(tc_data))
+                console.log("NYT: " + vsScale(nyt_data))
+                console.log("TC: " + vsScale(tc_data))
                 arcGeneratorTC.outerRadius(0);
 
                 d3.select("#nyt-circle").attr("d", arcGeneratorNYT());
@@ -833,43 +834,43 @@ function showVS(name){
                 vsScale.domain([1e-6, Math.max(nyt_data, tc_data)])
                 arcGeneratorNYT.outerRadius(vsScale(nyt_data));
                 console.log(nyt_data)
-                console.log("NYT: "+vsScale(nyt_data))
-                console.log("TC: "+vsScale(tc_data))
+                console.log("NYT: " + vsScale(nyt_data))
+                console.log("TC: " + vsScale(tc_data))
                 arcGeneratorTC.outerRadius(vsScale(tc_data));
 
                 d3.select("#nyt-circle").attr("d", arcGeneratorNYT());
                 d3.select("#tc-circle").attr("d", arcGeneratorTC());
             }
-            
+
         })
     })
-    
+
     gTime.style("opacity", 1);
-    
+
 }
 
-function updateVS(year){
+function updateVS(year) {
     console.log(year);
-    d3.json("./DATA/"+currentTopic+".json", function (error, dataNYT) {
-        d3.json("./DATA/TechCrunchDB_"+currentTopic+".json", function (error, dataTC) {
-            for (var i=0 ; i<dataNYT.length ; i++) {
-                if(year==dataNYT[i].year){
-                    nyt_data=dataNYT[i].freq
-                    for (var j=0 ; j<dataTC.length ; j++) {
-                        if(year==dataTC[j].year){
-                            tc_data=dataTC[j].freq
+    d3.json("./DATA/" + currentTopic + ".json", function(error, dataNYT) {
+        d3.json("./DATA/TechCrunchDB_" + currentTopic + ".json", function(error, dataTC) {
+            for (var i = 0; i < dataNYT.length; i++) {
+                if (year == dataNYT[i].year) {
+                    nyt_data = dataNYT[i].freq
+                    for (var j = 0; j < dataTC.length; j++) {
+                        if (year == dataTC[j].year) {
+                            tc_data = dataTC[j].freq
                         }
                     }
                 }
             }
-        
-            if(nyt_data==0&&tc_data==0){
+
+            if (nyt_data == 0 && tc_data == 0) {
                 d3.select("#nyt-number").text("NO DATA")
                 d3.select("#tc-number").text("")
                 arcGeneratorNYT.outerRadius(0);
                 console.log(nyt_data)
-                console.log("NYT: "+vsScale(nyt_data))
-                console.log("TC: "+vsScale(tc_data))
+                console.log("NYT: " + vsScale(nyt_data))
+                console.log("TC: " + vsScale(tc_data))
                 arcGeneratorTC.outerRadius(0);
 
                 d3.select("#nyt-circle").attr("d", arcGeneratorNYT());
@@ -880,8 +881,8 @@ function updateVS(year){
                 vsScale.domain([1e-6, Math.max(nyt_data, tc_data)])
                 arcGeneratorNYT.outerRadius(vsScale(nyt_data));
                 console.log(nyt_data)
-                console.log("NYT: "+vsScale(nyt_data))
-                console.log("TC: "+vsScale(tc_data))
+                console.log("NYT: " + vsScale(nyt_data))
+                console.log("TC: " + vsScale(tc_data))
                 arcGeneratorTC.outerRadius(vsScale(tc_data));
 
                 d3.select("#nyt-circle").attr("d", arcGeneratorNYT());

@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src="./thirdViz.js"></script>
     <script src='./firstViz.js'></script>
     <script src='./secondViz.js'></script>
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7124072/6351572/css/fonts.css" />
     <link rel='stylesheet' href='./firstViz.css' />
     <link rel='stylesheet' href='./secondViz.css' />
+    <link rel='stylesheet' href='./thirdViz.css' />
     <link rel='stylesheet' href='./window.css' />
+    <link rel='stylesheet' href='./bubble.css' />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
@@ -123,10 +126,32 @@
 
             </div>
         </div>
-        <div class="second_viz">
+        <!-- Computer -->
+        <div class="second_viz"></div>
+    </div>
+
+
+    <!-- SOLID -->
+
+    <div class="third_viz">
+        <p id="third_viz_title">Do you know what is Solid? <img title="Hover the images to see more info" id="help-img" src="./IMAGES/help.svg" alt="Help"></p>
+        <div id="SOLID-content">
+            <div id="help-SOLID">
+                <p id="help-SOLID-title">Introduction</p>
+                <p id="help-SOLID-body">
+                    Solid is a specification that lets people store their data securely in decentralized data stores called Pods. Pods are like secure personal web servers for data. When data is stored in someone's Pod, they control which people and applications can access
+                    it.
+                </p>
+                <p id="help-SOLID-extra">
+                    · · · · Info from <a href="https://solidproject.org/" target='blank'>Solid webpage</a> · · · ·
+                </p>
+            </div>
         </div>
     </div>
 
+    <div id="SOLID_tooltip_wrapper">
+        <div id="SOLID_tooltip">Text of the tooltip</div>
+    </div>
 
     <!-- svg -->
     <script>
