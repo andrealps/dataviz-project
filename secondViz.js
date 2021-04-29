@@ -438,11 +438,12 @@ function createVS() {
 
     vs.append("text").attr("id", "nyt-number")
         .text("12")
-        .attr("x", 395)
+        .attr("x", 400)
         .attr("y", 325)
         .attr("font-size", 20)
         .style("fill", "white")
         .style("text-align", "center")
+        .style("text-anchor", "middle")
         .style("opacity", 1);
 
     arcGeneratorTC = d3.arc() //.attr("id", "tc-arc")
@@ -463,6 +464,7 @@ function createVS() {
         .attr("font-size", 20)
         .style("fill", "white")
         .style("text-align", "center")
+        .style("text-anchor", "middle")
         .style("opacity", 1);
 
     var dataTime = d3.range(0, 7).map(function(d) {

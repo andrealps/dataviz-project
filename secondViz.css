@@ -101,6 +101,7 @@
     text-transform: uppercase;
 }
 
+
 /* VS */
 
 #vs-title {
@@ -115,21 +116,21 @@
     text-align: center;
 }
 
-#nyt-number{
+#nyt-number {
     font-size: 0.9em;
     text-align: center;
 }
 
-.axisWhite line{
-  stroke: white;
+.axisWhite line {
+    stroke: white;
 }
 
-.axisWhite path{
-  stroke: white;
+.axisWhite path {
+    stroke: white;
 }
 
-.axisWhite text{
-  fill: white;
+.axisWhite text {
+    fill: white;
 }
 
 
@@ -140,4 +141,8 @@
     font-size: 1em;
     font-family: Montserrat, sans-serif;
     font-weight: lighter;
+}
+
+.slider .parameter-value text {
+    stroke: rgb(191, 191, 240);
 }
