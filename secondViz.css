@@ -14,11 +14,17 @@
     border: black;
 }
 
-h1.title-present{
+.second_viz svg {
+    transform: translate(2em, -2.5em);
+}
+
+h1.title-present {
     font-size: 100px;
     font-weight: bold;
     text-align: center;
-    color:var(--color--empathy-light-blue);
+    color: var(--color--empathy-light-blue);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #svg-x-icon {

@@ -17,12 +17,13 @@
     --color--empathy-purple: #8B6391;
 }
 
-
-h1.title-future{
+h1.title-future {
     font-size: 100px;
     font-weight: bold;
     text-align: center;
-    color:var(--color--empathy-light-green);
+    color: var(--color--empathy-light-green);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
