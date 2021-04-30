@@ -5,6 +5,26 @@
     text-align: center;
 }
 
+:root {
+    --color-gray-tweet: #7B8C93;
+    --color--empathy-red: #D44A6F;
+    --color--empathy-orange: #E67962;
+    --color--empathy-yellow: #FDCB5B;
+    --color--empathy-light-green: #80C0A1;
+    --color--empathy-dark-green: #5F8F78;
+    --color--empathy-light-blue: #53B9C9;
+    --color--empathy-dark-blue: #0086B2;
+    --color--empathy-purple: #8B6391;
+}
+
+
+h1.title-future{
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    color:var(--color--empathy-light-green);
+}
+
 
 /** SVG ********************************************/
 
